@@ -41,4 +41,6 @@ a {
   <p>Nice! You booted Shortline on Rails <%= Rails::VERSION::STRING %>. <span style="font-size: 3rem;">👍</span></p>
 
   <p><a class="c-link-white" href="/admin">Login</a> to the admin or check out the <a class="c-link-white" href="/prototypes">components page</a>.</p>
+
+  <%=  image_tag(Riiif::Engine.routes.url_helpers.image_path('og-image', size: ',600')) %>
 </div>

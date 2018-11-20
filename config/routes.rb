@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   get "prototypes/form", to:"prototypes#form", as:"prototypes_form"
   get "prototypes/scripts", to:"prototypes#scripts", as:"prototypes_scripts"
 
+  mount Riiif::Engine => '/image-service', as: 'riiif'
+
   # Homepage
   root to:"homepage#index"
 

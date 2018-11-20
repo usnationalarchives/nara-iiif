@@ -43,6 +43,9 @@ gem "font_assets", "~> 0.1.14"           # Sets an Access-Control-Allow-Origin h
 # gem "twitter"                          # Twitter API connectivity
 # gem "vcardigan"                        # vCard/.vcf exporting
 
+# APPLICATION SPECIFIC GEMS 
+gem 'riiif'
+
 # PRODUCTION-ONLY GEMS
 group :production do
   gem "rails_12factor"                   # Heroku 12-factor app support
