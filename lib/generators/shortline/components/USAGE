@@ -1,0 +1,22 @@
+Description:
+    Creates the minimum requirements for a components system.
+
+    You will need to do the following manually:
+
+    1. Define component types by creating their required models, form field partials, database tables, and adding relevant additions to the Component model
+    2. Add the Componentable concern to relevant models
+    3. Update admin forms to support adding multiple components with the f.has_many formbuilder helper
+    4. Render the app/views/admin/shared/_components_table.html.erb partial on relevant admin inspect views
+    5. Add :components to the collection prioritizable items in config/routes.rb
+
+
+Example:
+    rails generate shortline:components
+
+    This will create:
+        app/models/component.rb
+        app/models/concerns/componentable.rb
+        app/controllers/admin/components_controller.rb
+        app/views/admin/components/_form.html.erb
+        app/views/admin/shared/_components_table.html.erb
+        app/views/shared/_components.html.erb

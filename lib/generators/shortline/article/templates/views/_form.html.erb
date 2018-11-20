@@ -1,0 +1,19 @@
+<%= f.label :title %>
+<%= f.slug_field :title, pattern: "/updates/*-#{f.object.id || @resource.class.maximum(:id).try(:next) || "1"}" %>
+<%= f.hint "The title of this #{type_lowercase(@resource)}. The title is featured prominently across the site and used to construct the page URL. A good title is both summarizing and enticing, much like a newspaper headline." %>
+
+<%= f.label :description, "Description" %>
+<%= f.text_area :description, rows: 5 %>
+<%= f.hint "Summarize this #{type_lowercase(@resource)} in less than 300 characters. This description appears at the top of the page and gets special attention from search engines, so make sure to include key words." %>
+
+<%= f.label :body %>
+<%= f.markdown_composer :body %>
+<%= f.hint "The body content of the #{type_lowercase(@resource)} formatted with Markdown." %>
+
+<%= f.label :published_at %>
+<%= f.timestamp_field :published_at %>
+<%= f.hint %{The date that this #{type_lowercase(@resource)} will be published on the site - Eastern Time (US & Canada). Use format YYYY-MM-DD. (time doesn't appear on page)} %>
+
+<%= f.label :status, "Status*" %>
+<%= f.select :status, Article.status_values.invert %>
+<%= f.hint %{The publishing status of the #{type_lowercase(@resource)}. Only #{type_lowercase(@resource)}s flagged as "Published" will be displayed on the site. If you are scheduling an #{type_lowercase(@resource)} to be published in the future the status must be set to "Published".} %>

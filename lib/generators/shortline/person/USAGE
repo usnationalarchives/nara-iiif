@@ -1,0 +1,12 @@
+Description:
+    Creates the minimum requirements for managed person model
+
+Example:
+    rails generate shortline:person
+
+    This will create:
+        # app/models/person.rb
+        # app/models/concerns/auto_sluggable.rb
+        # app/views/admin/people/_form.html.erb
+        # app/views/admin/people/_show.html.erb
+        # db/migrate/###########_create_people.rb

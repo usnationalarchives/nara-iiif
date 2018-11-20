@@ -1,0 +1,29 @@
+<%= f.has_many "#{collection}_curated_items" do |cf| %>
+
+  <%= cf.has_many_header allow_destroy: true %>
+
+  <div class="curated-item">
+
+    <div data-curated-type="collection"
+    data-curated-types="<%= f.object.class.send("#{collection}_types").to_json %>"
+    class="curated-type-select">
+      <%= cf.label :resource_type, "Content Type" %>
+      <%= cf.select :resource_type, f.object.class.send("#{collection}_types"), {prompt: 'Choose a type', disabled: ''}, { class: "" } %>
+      <%= cf.hint "Select the type of resource to add." %>
+    </div>
+
+    <% f.object.class.send("#{collection}_types").each do |type| %>
+
+      <div data-curated-child="<%= type %>" class="curated-item-select curated-item-select--<%= type.tableize.gsub("_", "-") %>">
+
+        <%= cf.label :resource_id, type %>
+        <%= cf.searchable_select :resource_id, type.constantize.order("id asc"), :id, :title, include_blank: false %>
+        <%= cf.hint "Select the resource." %>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+<% end %>

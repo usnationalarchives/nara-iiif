@@ -1,0 +1,12 @@
+Description:
+    Creates the minimum requirements for managed article model
+
+Example:
+    rails generate shortline:article
+
+    # app/models/article.rb
+    # app/views/admin/articles
+    # app/views/admin/articles/_form.html.erb
+    # app/views/admin/articles/_index.html.erb
+    # app/views/admin/articles/_show.html.erb
+    # db/migrate/###########_create_articles.rb

@@ -1,0 +1,48 @@
+<%-# DO NOT add an X-UA-Compatible meta tag here. Rails already sends this header %>
+
+<%-# Remove this if not building a responsive site %>
+<%= tag :meta, name:"viewport", content:"width=device-width, initial-scale=1, shrink-to-fit=no" %>
+
+<%-# Search engine metadata %>
+<%= tag :link, rel:"canonical", href: (content_for(:canonical).presence or current_url) %>
+<%= tag :meta, name:"description", content:content_for(:description) %>
+
+<%-# Facebook/OpenGraph %>
+<%-# Validator: https://developers.facebook.com/tools/debug/ %>
+<%-# Image specs: https://developers.facebook.com/docs/sharing/best-practices#images %>
+<%= tag :meta, property:"og:site_name", content:"FIXME SITE NAME" %>
+<%= tag :meta, property:"og:title", content: (content_for(:title).presence or "FIXME SITE NAME") %>
+<%= tag :meta, property:"og:description", content: content_for(:description) if content_for?(:description) %>
+<%= tag :meta, property:"og:url", content: (content_for(:canonical).presence or current_url) %>
+<%= tag :meta, property:"og:type", content: (content_for(:type).presence or "article") %>
+<%= tag :meta, property:"og:image", content: (content_for(:image).presence or public_file_url("og-image.png")) %>
+<%-#  Optional, but required for analytics %>
+<%-#= tag :meta, property:"fb:app_id", content:"your_app_id" %>
+
+<%-# Twitter Card %>
+<%-# Validator: https://cards-dev.twitter.com/validator %>
+<%-# Card specs: https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image.html %>
+<%= tag :meta, name:"twitter:card", content:"summary_large_image" %>
+<%= tag :meta, name:"twitter:site", content:"@#{@misc.twitter_handle}" %>
+<%= tag :meta, name:"twitter:title", content: (content_for(:title).presence or "FIXME SITE NAME") %>
+<%= tag :meta, name:"twitter:description", content:content_for(:description) %>
+<%= tag :meta, name:"twitter:image", content: (content_for(:image).presence or public_file_url("og-image.png")) %>
+
+<%-# Google Knowledge Graph %>
+<%-# Docs: https://developers.google.com/webmasters/structured-data/customize/overview %>
+<%-# Validator: https://developers.google.com/webmasters/structured-data/testing-tool/ %>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "FIXME SITE NAME",
+  "url": "<%= root_url %>",
+  "logo": "<%= public_file_url("app-icon.png") %>",
+  "sameAs": [
+    "<%= @misc.facebook_uri %>",
+    "https://twitter.com/<%= @misc.twitter_handle %>"
+  ]
+}
+</script>
+
+<!-- FIXME: Generate favicon files and code using https://realfavicongenerator.net -->

@@ -1,0 +1,6 @@
+<% object.components.published.each_with_index do |component, index| %>
+  <%= render "shared/components/#{component.component_type}",
+    component: component,
+    object: component.send("component_#{component.component_type}".to_sym),
+    index: index if component.send("component_#{component.component_type}".to_sym).present? %>
+<% end %>

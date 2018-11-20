@@ -1,0 +1,17 @@
+<%= f.label :title %>
+<%= f.text_field :title, placeholder:"Document title" %>
+<%= f.hint "The title of this document file" %>
+
+<%= f.label :attachment, "File" %>
+<%= f.attachment_field :attachment %>
+<p class="hint">
+  <% if f.object.persisted? %>
+    <%= link_to f.object.attachment.url(:original), style:"color:#444" do %>
+      <%= fontawesome_icon :cloud_download %>
+      <%= f.object.attachment.url(:original).split("//").last %>
+    <% end %>
+    <br>
+  <% end %>
+  Upload the relevant document or file. If this resource is primarily a printable document,
+  PDF format is greatly preferred over Microsoft Office documents. The maximum file size is 10 MB.
+</p>

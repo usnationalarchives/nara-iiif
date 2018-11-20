@@ -1,0 +1,12 @@
+Description:
+    Creates the minimum requirements for managed image model
+
+Example:
+    rails generate shortline:image
+
+    This will create:
+        app/models/image.rb
+        app/models/concerns/has_images.rb
+        app/views/admin/images/_form.html.erb
+        app/views/admin/images/_index.html.erb
+        app/views/admin/images/_show.html.erb

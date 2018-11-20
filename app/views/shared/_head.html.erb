@@ -1,0 +1,38 @@
+<head>
+  <meta charset="utf-8">
+  <title><%= content_for(:title) %><%= ": " if content_for(:title) %>FIXME SITE NAME</title>
+  <%= render "shared/meta" %>
+  <%= csrf_meta_tags %>
+
+  <%-# Preload woff2 font files, since they will be used on every page. %>
+  <%-# Note: Browsers that support “preload” also support woff2 (no IE 11 or Android 4.4) %>
+  <%-# https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf#c614 %>
+  <%-# <link rel="preload" as="font" crossorigin="crossorigin" type="font/woff2" href="font-name.woff2"> %>
+
+  <%-# Optional: Consider inlining crtical CSS %>
+  <%-# https://github.com/mudbugmedia/critical-path-css-rails %>
+
+  <%-# Main stylesheet %>
+  <%= stylesheet_link_tag "main", media:"all" %>
+
+  <%-# This inline style is used to detect “font-display” support by critical.js %>
+  <%-# Note: We could also dynamically inject this with JS but this is faster and simpler. %>
+  <style id="cssTest">@font-face{font-display:swap;font-family:required_for_test}</style>
+
+  <%-# Inline environment vars for easy access by JS %>
+  <script>var APP = {"YOUTUBE_PUBLIC_KEY": "<%= ENV.fetch('YOUTUBE_PUBLIC_KEY') %>"};</script>
+
+  <%-# Google Tag Manager %>
+  <% if !Rails.env.production? %>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+    </script>
+    <script src="https://www.googletagmanager.com/gtm.js?id=<%= ENV.fetch("GOOGLE_TAG_MANAGER") %>" async></script>
+  <% end %>
+
+  <%-# Inline critical JS %>
+  <% cache "inline-critical-js" do %>
+    <script><%= Rails.application.assets["critical.js"].to_s.html_safe %></script>
+  <% end %>
+</head>

@@ -1,0 +1,379 @@
+<style>
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+code {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.caption {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.c-red {
+  font-weight: bold;
+}
+</style>
+
+<div class="l-padding u-mt5">
+  <div class="l-wrap--narrow">
+    <a href="<%= prototypes_index_path %>">←Back to Components</a>
+
+    <h1 class="u-mt2" style="font-size: 3em; font-weight: bold;">Form Example</h1>
+
+    <%# Rich text content %>
+    <div class="u-richtext f-scale-body u-mt2 u-mb10">
+      <ul class="u-mb4">
+        <li><a href="#email">Email</a></li>
+        <li><a href="#fav-number">Number</a></li>
+        <li><a href="#postal-code">Postal Code</a></li>
+        <li><a href="#flavor">Select</a></li>
+        <li><a href="#vessel_sugar">Radio</a></li>
+        <li><a href="#topping_fudge">Checkbox</a></li>
+      </ul>
+
+      <p>Form with client-side validation and autocomplete attributes<br>(see <a href="https://medium.com/@grigs/autofill-what-web-devs-should-know-but-dont-d8f32575253c">Autofill: What web devs should know, but don’t</a>).</p>
+
+      <%# Form example w/client-side validation %>
+      <form class="u-form u-mt4 u-mb10" action="#" data-validate>
+        <%# Personal Info %>
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <%# Name %>
+          <%# Note: For separate first and last name fields, use the “fname” and “lname” autocomplete values %>
+          <div class="u-mb4">
+            <label for="fullname_1">
+              Your Full Name<span class="c-red" aria-hidden="true">*</span>
+              <code>(data-validate="notempty")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please enter your name</span>
+            </label>
+            <input type="text" id="fullname_1" name="fullname_1" placeholder="Name" data-validate="notempty" aria-required="true" autocomplete="name">
+            <p class="caption">Valid if field is not empty</p>
+          </div>
+
+          <%# Job title %>
+          <div class="u-mb4">
+            <label for="jobtitle">Job Title</label>
+            <input type="text" id="jobtitle" name="jobtitle" autocomplete="organization-title">
+          </div>
+
+          <%# Organization %>
+          <div class="u-mb4">
+            <label for="company">Organization</label>
+            <input type="text" id="company" name="company" autocomplete="organization">
+          </div>
+
+          <%# Email %>
+          <div class="u-mb4">
+            <label for="email">
+              Your Email<span class="c-red" aria-hidden="true">*</span>
+              <code>(data-validate="email")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please enter a valid email address</span>
+            </label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" data-validate="email" aria-required="true" autocomplete="home email">
+            <p class="caption">Valid if contains at least one “@” and “.”</p>
+          </div>
+
+          <%# Phone %>
+          <div class="u-mb4">
+            <label for="phone">
+              Your Phone Number<span class="c-red" aria-hidden="true">*</span>
+              <code>(data-validate="phone")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please enter a valid phone number</span>
+            </label>
+            <input type="tel" id="phone" name="phone" placeholder="555-123-4567" data-validate="phone" aria-required="true" autocomplete="home tel">
+            <p class="caption">Valid unless contains line breaks</p>
+          </div>
+
+          <%# Favorite Number %>
+          <div class="u-mb4">
+            <label for="fav-number">
+              Favorite number <code>(data-validate="number")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please enter a valid number</span>
+            </label>
+            <input type="text" id="fav-number" name="fav-number" data-validate="number">
+            <p class="caption">Valid if contains numbers (Note: non-numerals can’t be typed, only pasted)</p>
+          </div>
+
+          <%# Comments %>
+          <div class="u-mb4">
+            <label for="comments">Comments (optional)</label>
+            <textarea id="comments" name="comments" rows="3"></textarea>
+          </div>
+        </fieldset>
+
+        <%# Address %>
+        <fieldset>
+          <legend>Shipping Address</legend>
+          <div class="u-mb4">
+            <label for="address">Street Address</label>
+            <%# For autosize functionality, check out http://www.jacklmoore.com/autosize/ %>
+            <textarea id="address" name="address" rows="3" autocomplete="shipping street-address"></textarea>
+          </div>
+
+          <div class="u-mb4">
+            <label for="address-level2">City</label>
+            <input type="text" id="address-level2" name="city" autocomplete="shipping address-level2">
+          </div>
+
+          <div class="u-mb4">
+            <label for="state">State/Province</label>
+            <input type="text" id="state" name="state" autocomplete="shipping address-level1">
+          </div>
+
+          <div class="u-mb4">
+            <label for="country-name">Country Name</label>
+            <input type="text" id="country-name" name="country-name" autocomplete="shipping country-name">
+          </div>
+
+          <div class="u-mb4">
+            <label for="postal-code">
+              Postal Code <code>(data-validate="zip")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please enter a valid ZIP code</span>
+            </label>
+            <input type="text" id="postal-code" name="postal-code" data-validate="zip" autocomplete="shipping postal-code">
+            <p class="caption">Valid if 2–12 letters, numbers, spaces, or dashes</p>
+          </div>
+        </fieldset>
+
+        <%# Payment %>
+        <%# Note: Use Stripe API or jQuery.payment to validate payment info %>
+        <%# https://stripe.com/docs/stripe.js %>
+        <%# https://github.com/stripe/jquery.payment %>
+        <fieldset>
+          <legend>Payment Info</legend>
+          <div class="u-mb4">
+            <label for="nameoncard">Name on Card</label>
+            <input type="text" id="nameoncard" name="nameoncard" autocomplete="cc-name">
+          </div>
+
+          <div class="u-mb4">
+            <label for="ccnumber">Credit Card Number</label>
+            <input type="text" id="ccnumber" name="ccnumber" autocomplete="cc-number">
+          </div>
+
+          <div class="u-mb4">
+            <label for="cc-exp-month">Expiration Month</label>
+            <input type="number" id="cc-exp-month" name="cc-exp-month" autocomplete="cc-exp-month">
+          </div>
+
+          <div class="u-mb4">
+            <label for="cc-exp-year">Expiration Year</label>
+            <input type="number" id="cc-exp-year" name="cc-exp-year" autocomplete="cc-exp-year">
+          </div>
+
+          <div class="u-mb4">
+            <label for="cvv2">CVV</label>
+            <input type="text" id="cvv2" name="cvv2" autocomplete="cc-csc">
+          </div>
+        </fieldset>
+
+        <%# Other Inputs %>
+        <fieldset>
+          <legend>Other Input Types</legend>
+
+          <%# Select example %>
+          <div class="u-mb4">
+            <label for="flavor">
+              Favorite flavor?<span class="c-red" aria-hidden="true">*</span>
+              <code>(data-validate="notempty")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please choose a flavor</span>
+            </label>
+            <br>
+            <select class="js-custom-select" id="flavor" name="flavor" data-validate="notempty" aria-required="true">
+              <option value="" selected disabled>Select a flavor</option>
+              <option value="flavor_1">Chocolate</option>
+              <option value="flavor_2">Vanilla</option>
+              <option value="flavor_3">Strawberry</option>
+              <option value="flavor_4">Caramel</option>
+            </select>
+            <p class="caption">Valid if a selection is made</p>
+          </div>
+
+          <%# Multi-Select example %>
+          <div class="u-mb4">
+            <label for="flavors">
+              Favorite flavor(s)?<span class="c-red" aria-hidden="true">*</span>
+              <code>(data-validate="notempty")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please choose flavors</span>
+            </label>
+            <br>
+            <select class="js-custom-select" id="flavors" name="flavors" data-validate="notempty" aria-required="true" multiple>
+              <option value="" selected>Select a flavor</option>
+              <option value="flavor_1">Chocolate</option>
+              <option value="flavor_2">Vanilla</option>
+              <option value="flavor_3">Strawberry</option>
+              <option value="flavor_4">Caramel</option>
+            </select>
+            <p class="caption">Valid if a selection is made</p>
+          </div>
+
+          <%# Radio button group example %>
+          <fieldset class="u-mb4" role="radiogroup" data-validate-group="notempty" aria-required="true">
+            <legend>
+              Preferred vessel?<span class="c-red" aria-hidden="true">*</span>
+              <code>(data-validate-group="notempty")</code>
+              <span class="is-hidden" data-validate="error" role="alert">Please choose one</span>
+            </legend>
+
+            <div class="u-mb1">
+              <input type="radio" name="vessel" value="sugar" id="vessel_sugar">
+              <label for="vessel_sugar">Sugar cone</label>
+            </div>
+            <div class="u-mb1">
+              <input type="radio" name="vessel" value="waffle" id="vessel_waffle">
+              <label for="vessel_waffle">Waffle cone</label>
+            </div>
+            <div class="u-mb1">
+              <input type="radio" name="vessel" value="bowl" id="vessel_bowl">
+              <label for="vessel_bowl">Bowl</label>
+            </div>
+          </fieldset>
+
+          <%# NOTE: There is no official way to denote required checkbox groups using ARIA %>
+
+          <%# Checkbox group minimum example %>
+          <fieldset class="u-mb4" data-validate-group="min-1" data-validate-required>
+            <legend>
+              Choose your toppings<span class="c-red" aria-hidden="true">*</span> (minimum of 1)
+              <span class="is-hidden" data-validate="error" role="alert">Please select at least 1</span>
+            </legend>
+
+            <%# Put the input _before_ the label so we can add custom styles without JS (see _inputs.scss) %>
+            <div class="u-mb1 u-mt1">
+              <input type="checkbox" name="toppings" value="fudge" id="topping_fudge">
+              <label for="topping_fudge">Hot fudge</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings" value="caramel" id="topping_caramel">
+              <label for="topping_caramel">Caramel</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings" value="whippedcream" id="topping_whippedcream">
+              <label for="topping_whippedcream">Whipped cream</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings" value="sprinkles" id="topping_sprinkles">
+              <label for="topping_sprinkles">Sprinkles</label>
+            </div>
+
+            <p class="caption">Valid if at least 1 checkbox is selected</p>
+          </fieldset>
+
+          <%# Checkbox group maximum example %>
+          <fieldset class="u-mb4" data-validate-group="max-2" data-validate-required>
+            <legend>
+              Choose your toppings<span class="c-red" aria-hidden="true">*</span> (maximum of 2)
+              <span class="is-hidden" data-validate="error" role="alert">Please select no more than 2</span>
+            </legend>
+
+            <%# Put the input _before_ the label so we can add custom styles without JS (see _inputs.scss) %>
+            <div class="u-mb1 u-mt1">
+              <input type="checkbox" name="toppings2" value="fudge" id="topping2_fudge">
+              <label for="topping2_fudge">Hot fudge</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings2" value="caramel" id="topping2_caramel">
+              <label for="topping2_caramel">Caramel</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings2" value="whippedcream" id="topping2_whippedcream">
+              <label for="topping2_whippedcream">Whipped cream</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings2" value="sprinkles" id="topping2_sprinkles">
+              <label for="topping2_sprinkles">Sprinkles</label>
+            </div>
+
+            <p class="caption">Valid if 2 or fewer checkboxes are selected</p>
+          </fieldset>
+
+          <%# Checkbox group exact example %>
+          <fieldset class="u-mb4" data-validate-group="3" data-validate-required>
+            <legend>
+              Choose your toppings<span class="c-red" aria-hidden="true">*</span> (exactly 3)
+              <span class="is-hidden" data-validate="error" role="alert">Please select exactly 3</span>
+            </legend>
+
+            <%# Put the input _before_ the label so we can add custom styles without JS (see _inputs.scss) %>
+            <div class="u-mb1 u-mt1">
+              <input type="checkbox" name="toppings3" value="fudge" id="topping3_fudge">
+              <label for="topping3_fudge">Hot fudge</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings3" value="caramel" id="topping3_caramel">
+              <label for="topping3_caramel">Caramel</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings3" value="whippedcream" id="topping3_whippedcream">
+              <label for="topping3_whippedcream">Whipped cream</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings3" value="sprinkles" id="topping3_sprinkles">
+              <label for="topping3_sprinkles">Sprinkles</label>
+            </div>
+
+            <p class="caption">Valid if exactly 3 checkboxes are selected</p>
+          </fieldset>
+
+        </fieldset>
+
+        <%# Submit button %>
+        <button class="btn" type="submit" data-validate="submit">Submit</button>
+
+      </form>
+
+      <%# Form that submits via AJAX %>
+      <h2>AJAX Form</h2>
+
+      <%-# This text will be hidden after the form submits %>
+      <p class="hide-on-success">Sign up for email updates</p>
+
+      <%-# This text will be shown after the form submits %>
+      <p class="show-on-success" style="border: 3px solid currentColor; color: green; display: none; padding: 10px 15px;">Thanks for signing up!</p>
+
+      <%-# This text will be shown if there is an error %>
+      <p class="show-on-error" role="alert" style="border: 3px solid currentColor; color: red; display: none; padding: 10px 15px;">Oh no! There was an error, please try again.</p>
+
+      <form class="u-form hide-on-success" action="http://mockbin.org/bin/b04a22ff-1649-482f-b812-cd69eb8212a3" method="post" accept-charset="utf-8" data-validate data-form-ajax data-success-hide=".hide-on-success" data-success-show=".show-on-success" data-error-show=".show-on-error">
+        <%# Email %>
+        <div class="u-mb4">
+          <label for="email_1">
+            Your Email<span class="c-red" aria-hidden="true">*</span>
+            <code>(data-validate="email")</code>
+            <span class="is-hidden" data-validate="error" role="alert">Please enter a valid email address</span>
+          </label>
+          <input type="email" id="email_1" name="email_1" placeholder="name@example.com" data-validate="email" aria-required="true" autocomplete="home email">
+          <p class="caption">Valid if contains at least one “@” and “.”</p>
+        </div>
+
+        <style>
+          .DemoButton svg {
+            display: none;
+            fill: currentColor;
+          }
+
+          .DemoButton:disabled svg {
+            display: inline-block;
+          }
+
+          .DemoButton:disabled .DemoButton-text {
+            display: none;
+          }
+        </style>
+
+        <button class="btn DemoButton" type="submit" data-validate="submit">
+          <span class="DemoButton-text">Submit</span>
+          <%= svg "icons/spinner", {class:"", width: 30} %>
+        </button>
+      </form>
+
+    </div><%# end u-richtext %>
+
+  </div>
+</div>

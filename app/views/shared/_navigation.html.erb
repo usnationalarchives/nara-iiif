@@ -1,0 +1,20 @@
+<%-# If site contains multiple nav menus, add a unique “aria-label” to each %>
+<nav class="Nav l-padding" role="navigation">
+  <ul class="Nav-list l-wrap">
+    <li class="Nav-item">
+      <a class="Nav-link" href="<%= root_path %>" <%= 'aria-current="page"'.html_safe if current_page?(root_path) %>>Home</a>
+    </li>
+    <li class="Nav-item">
+      <a class="Nav-link" href="<%= prototypes_index_path %>" <%= 'aria-current="page"'.html_safe if current_page?(prototypes_index_path) %>>Components</a>
+    </li>
+    <li class="Nav-item">
+      <a class="Nav-link" href="<%= prototypes_form_path %>" <%= 'aria-current="page"'.html_safe if current_page?(prototypes_form_path) %>>Forms</a>
+    </li>
+    <li class="Nav-item">
+      <a class="Nav-link" href="<%= prototypes_scripts_path %>" <%= 'aria-current="page"'.html_safe if current_page?(prototypes_scripts_path) %>>Scripts</a>
+    </li>
+    <li class="Nav-item">
+      <%= link_to "Login", "/admin", class:"Nav-link" %>
+    </li>
+  </ul>
+</nav><%# end Nav %>

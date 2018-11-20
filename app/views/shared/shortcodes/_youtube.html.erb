@@ -1,0 +1,28 @@
+<div class="Embed u-mt4 u-mb4">
+  <div class="Embed-video">
+
+    <% youtube_uri = service_uri("//www.youtube.com/embed/#{id}", {
+      modestbranding: 1, # No YouTube logo
+      iv_load_policy: 3, # No annotations
+      controls: 2, # Don't load flash player until clicked
+      showinfo: 0, # Don't show title
+      wmode: "transparent", # Ask the iframe to be transparent and obey z-index
+      rel: 0, # Don't show related videos
+    }) %>
+
+    <iframe src="<%= youtube_uri %>"
+      title="<%= title.presence || "A video on YouTube" %>"
+      frameborder="0"
+      webkitallowfullscreen
+      mozallowfullscreen
+      allowfullscreen>
+      This video requires an frame-capable browser.
+      <% if alternate_uri.present? %>
+        <%= link_to "See alternative content for #{title}", alternate_uri %>
+      <% else %>
+        <%= link_to "Watch #{title} on YouTube", "https://www.youtube.com/watch?v=#{id}" %>
+      <% end %>
+    </iframe>
+
+  </div>
+</div>

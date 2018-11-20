@@ -1,0 +1,25 @@
+<%= show_table do %>
+
+  <thead>
+    <%= show_thead_tr %>
+  </thead>
+  <tbody>
+
+    <%= show_tr "Created At", @resource.created_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+    <%= show_tr "Updated At", @resource.updated_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+
+    <%= show_tr :title %>
+
+    <% if @resource.meta_status.published? %>
+      <%= show_tr "URL", link_to(article_url(@resource.editorial_slug), article_url(@resource.editorial_slug), target:"_blank") %>
+    <% else %>
+      <%= show_tr "URL", link_to(preview_article_url(@resource.uuid), preview_article_url(@resource.uuid), target:"_blank") %>
+    <% end %>
+
+    <%= show_tr "Published At", @resource.published_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+
+    <%= show_tr :description %>
+
+  </tbody>
+
+<% end %>

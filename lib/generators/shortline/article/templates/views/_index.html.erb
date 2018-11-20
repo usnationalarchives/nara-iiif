@@ -1,0 +1,28 @@
+<%= index_table do %>
+  <thead>
+    <tr>
+      <%= index_th :id %>
+      <%= index_th :title %>
+      <%= index_th "Status", sort: :status %>
+      <%= index_th :published_at, sort: :published_at %>
+      <%= index_th "View" %>
+      <%= actions_th %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resources.each do |resource| %>
+      <tr>
+        <%= index_td resource, :id %>
+        <%= index_td resource, resource.title %>
+        <%= index_td resource, status_pill(resource.meta_status) %>
+        <%= index_td resource, %{<span class="u-nowrap">#{resource.published_at.to_s(:admin)}</span>} %>
+        <% if resource.meta_status.published? %>
+          <td><%= link_to "Visit", article_url(resource.editorial_slug), target:"_blank", class: "button -small" %></td>
+        <% else %>
+          <td><%= link_to "Preview", preview_article_url(resource.uuid), target:"_blank", class: "button -small" %></td>
+        <% end %>
+        <%= actions_td resource %>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>

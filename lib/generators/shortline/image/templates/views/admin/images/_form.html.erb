@@ -1,0 +1,23 @@
+<%= f.label :title, "Title*" %>
+<%= f.text_field :title, placeholder: "Image Title" %>
+<%= f.hint %{The title of this image.} %>
+
+<%= f.label :image_file, "Image File*" %>
+<%= f.s3_uploader :image_file, preview_url: f.object.image_file.url(:square) %>
+<%= f.hint "The file for the image" %>
+
+<%= f.label :alt_text, "Alternate Text*" %>
+<%= f.text_area :alt_text, placeholder: "Image Alternate Text", rows:4 %>
+<%= f.hint "Short descriptive text for people who don't see the image (for accessibility purposes)." %>
+
+<%= f.label :caption, "Caption" %>
+<%= f.text_field :caption, placeholder: "Image caption" %>
+<%= f.hint "The global caption to be used for the image when required." %>
+
+<%= f.label :attribution, "Attribution" %>
+<%= f.text_field :attribution, placeholder: "Image Attribution" %>
+<%= f.hint %{The attribution for this image.} %>
+
+<%= f.label :keywords, "Keywords" %>
+<%= f.text_field :keywords, placeholder: "Image Keywords" %>
+<%= f.hint "Additional keywords (used for searching within the CMS)." %>

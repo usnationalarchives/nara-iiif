@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="no-js lte-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+<%= render "shared/head" %>
+<body<%= %{ class="#{yield(:body_classes)}"}.html_safe if content_for?(:body_classes) %>>
+  <%-# Google Tag Manager (noscript) %>
+  <% if Rails.env.production? %>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= ENV.fetch("GOOGLE_TAG_MANAGER") %>"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <% end %>
+
+  <%-# Defer script execution until after HTML has been parsed %>
+  <%-# Split the site JS into two files: a “preload” file that contains small critical scripts (e.g. Modernizr, FontFaceObserver), and a “main” file that contains everything else. %>
+  <%#
+    NOTE: Since we aren’t sending send JS to IE 9 or below,
+          ensure site follows progressive enhancement best practices.
+          https://github.com/tedw/fed-resources/#-progressive-enhancement
+  %>
+  <!--[if gt IE 9]><!-->
+    <%= javascript_pack_tag "preload", defer:true %>
+    <%= javascript_pack_tag "main", defer:true %>
+  <!--<![endif]-->
+
+  <%-# Skip links for accessiblity %>
+  <%= render "shared/skiplinks" %>
+
+  <%-# Header %>
+  <%= render "shared/header" %>
+
+  <%-# NOTE: The nav may make more sense inside of the header, depends on the design. %>
+  <%= render "shared/navigation" %>
+
+  <%-# Main Content %>
+  <main id="main" class="Main <%= yield(:main_classes) %>" role="main">
+    <%= yield %>
+  </main>
+
+  <%-# Footer %>
+  <%= render "shared/footer" %>
+
+  <%-# FIXME: Remove if using GTM instead of Google Analytics %>
+  <%-# Google Analytics snippet %>
+  <%-# https://github.com/h5bp/html5-boilerplate/blob/master/src/index.html#L32-L37 %>
+  <% if Rails.env.production? %>
+    <!--
+    <script>
+      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+      ga('create','UA-<%= ENV.fetch("GOOGLE_ANALYTICS_UA") %>','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    -->
+  <% end %>
+
+  <%-# OPTIONAL: Web font service tracking code %>
+  <%-# Fonts.com tracking URL is https://fast.fonts.net/t/1.css?apiType=css&projectid=XXXXXXX %>
+  <%-# Typekit tracking URL is located in CSS, e.g. https://use.typekit.net/PROJECT_ID.css %>
+  <%-# JS from https://plainjs.com/javascript/ajax/making-cors-ajax-get-requests-54/ %>
+  <% if Rails.env.production? %>
+    <%#
+    <script>
+      function getCORS(url, success) {
+        var xhr = new XMLHttpRequest();
+        if (!('withCredentials' in xhr)) xhr = new XDomainRequest(); // fix IE8/9
+        xhr.open('GET', url);
+        xhr.onload = success;
+        xhr.addEventListener('error', failure);
+        xhr.send();
+        return xhr;
+      }
+
+      getCORS('https://FONT_TRACKING_URL.css', function(request) {
+        // Success!
+      }, function(error) {
+        // Failure :(
+        console.warn('Could not ping Typekit tracking URL');
+      });
+    </script>
+    %>
+  <% end %>
+
+</body>
+</html>

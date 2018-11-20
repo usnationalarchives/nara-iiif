@@ -1,0 +1,9 @@
+<%= f.label :title, "Title*" %>
+<%= f.text_field :title, placeholder: "Title" %>
+<%= f.hint "The title of the component." %>
+
+<%= render "admin/components/fields/#{f.object.component_type}_fields", f: f %>
+
+<%= f.label :status, "Status*" %>
+<%= f.searchable_select :status, Component.status_values, :first, :last, include_blank: false  %>
+<%= f.hint "The publishing status of the component. Only published components will be displayed on the site." %>

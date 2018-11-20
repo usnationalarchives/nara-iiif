@@ -1,0 +1,11 @@
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.hint "The person's full name." %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.hint "The person's title." %>
+
+<%= f.label :bio, "Biography" %>
+<%= f.markdown_composer :bio %>
+<%= f.hint "The person's biography, formatted with Markdown." %>

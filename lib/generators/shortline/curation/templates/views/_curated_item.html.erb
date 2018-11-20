@@ -1,0 +1,34 @@
+<%= f.fields_for "#{item}_curated_item", f.object.send("#{item}_curated_item") || CuratedItem.new(parent_type: f.object.class.name, parent_id: f.object.id) do |cf| %>
+
+  <div class="curated-item">
+
+    <div class="curated-item-header">
+    </div>
+    <h4>
+      <span><%= item.to_s.gsub("_", " ").titlecase %></span>
+    </h4>
+
+    <div class="curated-item-content">
+      <div data-curated-type="item"
+      data-curated-types="<%= f.object.class.send("#{item}_types").to_json %>"
+      class="curated-type-select curated-type-select--single">
+        <%= cf.label :resource_type, "Type" %>
+        <%= cf.select :resource_type, f.object.class.send("#{item}_types"), { include_blank: "No Item", prompt: "Choose a type", disabled: ''}, { class: "curated-item-searchable-select" } %>
+        <%= cf.hint "Select the type of resource to add." %>
+      </div>
+
+      <%= cf.hidden_field :_destroy, value:0, data: {destroy: true} %>
+      <% f.object.class.send("#{item}_types").each do |type| %>
+
+      <div data-curated-child="<%= type %>" class="curated-item-select curated-item-select--single curated-item-select--<%= type.tableize.gsub("_", "-") %>">
+        <%= cf.label :resource_id, type %>
+        <%= cf.searchable_select :resource_id, type.constantize.order("id asc"), :id, :title, include_blank: false %>
+        <%= cf.hint "Select the resource." %>
+      </div>
+
+      <% end %>
+    </div>
+
+  </div>
+
+<% end %>

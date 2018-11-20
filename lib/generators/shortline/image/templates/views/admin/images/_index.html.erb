@@ -1,0 +1,18 @@
+<%= index_table do %>
+  <thead>
+    <tr>
+      <%= index_th :id %>
+      <%= index_th :title %>
+      <%= actions_th %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resources.each do |resource| %>
+      <tr>
+        <%= index_td resource, :id %>
+        <%= index_td resource, :title, image: resource.image_file.url(:small) %>
+        <%= actions_td resource %>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>

@@ -1,0 +1,18 @@
+<%= f.label :original_path, "Original Path" %>
+<%= f.text_field :original_path, placeholder:"/example", class:"monospace" %>
+<%= f.hint %{
+  The original path on this site to set up as the redirect.
+  Must be a root-relative URI.
+  Do not include any query parameters or a filename extension, the system will automatically
+  handle all variants of this path
+  (for example, if you set “/tolaria” as the original path, the system will also catch
+  “/tolaria.jpg” and “/tolaria.html” and “/tolaria.html?param=x”)
+} %>
+
+<%= f.label :target_uri, "Target URI" %>
+<%= f.text_field :target_uri, placeholder:"/other-path", class:"monospace" %>
+<%= f.hint "The target URI. May be a full URI to another website, or a root-relative URI on this website." %>
+
+<%= f.label :parameter_preservation_mode, "Query Parameters" %>
+<%= f.collection_select :parameter_preservation_mode, Redirect.parameter_preservation_mode_values, :first, :last, include_blank:false %>
+<%= f.hint "By default, query parameters on the original path are ignored, and the user is redirected to the full target URI. You can override this behavior so that incoming query parameters are used instead." %>

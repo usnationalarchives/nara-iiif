@@ -1,0 +1,19 @@
+<header class="Header" role="banner">
+
+  <%-# On the homepage, the logo should be inside of an <h1> %>
+  <%= content_tag (controller_name.eql?("homepage")? :h1 : :div), class: "" do %>
+    <a class="Header-logo" href="/">
+      <%-# Since this link contains a child element, add role="text" for VoiceOver %>
+      <%-# See http://axesslab.com/text-splitting/ %>
+      <%-# (this may not be necessary when the icon has aria-hidden="true", need to test) %>
+      <span class="u-screenreader" role="text">FIXME SITE NAME homepage</span>
+
+      <%-# FIXME: Replace with client logo %>
+      <%= svg 'threespot-logo', {class:"", width:"200"} %>
+
+      <%-# High-res PNG logo example %>
+      <%-# <img src="https://satyr.io/100x50?text=Logo" srcset="https://satyr.io/200x100?text=Logo 1x, https://satyr.io/400x200?text=Logo 2x" alt="FIXME SITE NAME homepage" /> %>
+    </a>
+  <% end %>
+
+</header><%# end Header %>

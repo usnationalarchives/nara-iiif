@@ -1,0 +1,60 @@
+<div class="s3-uploader-field" data-uploader-preview-url="<%= preview_url %>" data-uploader-current-url="<%= current_url %>">
+
+  <%= f.url_field method, class:"s3-uploader-field-input monospace", placeholder:"https://", value:nil, style:"display:none", data:{uploader:"url-field"} %>
+  <%= f.file_field method, id:"", name:"", style:"display:none", data:{uploader:"file-field"} %>
+
+  <div class="s3-uploader-field-touch-region">
+
+    <% if preview_url.present? %>
+      <%= content_tag :div, nil, class:"s3-uploader-field-preview-well", style:"background-image:url(#{preview_url})", data:{uploader:"empty-well"} %>
+      <div class="icon icon-cloud-upload" data-uploader="icon" style="display:none"></div>
+    <% elsif current_url.present? %>
+      <div class="icon icon-cloud-file-o" data-uploader="icon"></div>
+    <% else %>
+      <div class="s3-uploader-field-empty-well" data-uploader="empty-well"></div>
+      <div class="icon icon-cloud-upload" data-uploader="icon" style="display:none"></div>
+    <% end %>
+
+    <div class="s3-uploader-field-action">
+      <button type="button" class="s3-uploader-field-action-main" data-uploader="main-label">
+        <% if preview_url.present? || current_url.present? %>
+          Drag and drop a replacement file here, <span>or select one</span>
+        <% else %>
+          Drag and drop a file here, <span>or select one</span>
+        <% end %>
+      </button>
+    </div>
+
+    <progress value="0" max="100" style="display:none">0%</progress>
+
+    <div class="s3-uploader-field-action">
+      <button type="button" class="s3-uploader-field-action-alt" data-uploader="url-mode">
+        Upload from a URL instead
+      </button>
+    </div>
+
+    <% if current_url.present? %>
+      <div class="s3-uploader-field-action">
+        <%= link_to "Open the current file", current_url, {
+          class:"s3-uploader-field-action-alt",
+          target: "_blank",
+          data:{uploader:"open-current"}
+        } %>
+      </div>
+    <% end %>
+
+    <div class="s3-uploader-field-action">
+      <button type="button" class="s3-uploader-field-action-alt" data-uploader="cancel" style="display:none">
+        Cancel
+      </button>
+    </div>
+
+    <div class="s3-uploader-field-action">
+      <button class="s3-uploader-field-action-alt" data-uploader="discard" style="display:none">
+        Discard this file
+      </button>
+    </div>
+
+  </div>
+
+</div>

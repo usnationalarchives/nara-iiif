@@ -1,0 +1,11 @@
+*.gitkeep
+.gitignore
+.ruby-version
+.tool-versions
+/log
+/test
+/tmp
+config/environments/test.rb
+doc/security.md
+README.md
+ISSUE_TEMPLATE.md

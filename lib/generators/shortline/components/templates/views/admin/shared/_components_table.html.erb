@@ -1,0 +1,31 @@
+<% if components.any? %>
+  <div class="index-table-wrap components-table-wrap">
+    <div class="main-controls">
+      <h2><%= fontawesome_icon("cubes") %> Components</h2>
+    </div>
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th class="index-th">Title</th>
+          <th class="index-th">Type</th>
+          <th class="index-th">Status</th>
+          <th class="index-th">Priority</th>
+          <th class="index-th">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% components.each do |component| %>
+          <tr>
+            <td class="index-td "><%= link_to component.title, edit_admin_component_path(component) %></td>
+            <td class="index-td "><%= link_to component.component_type_string, edit_admin_component_path(component) %></td>
+            <td class="index-td "><%= link_to status_pill(component.meta_status), edit_admin_component_path(component) %></td>
+            <td class="actions-td "><%= priority_collection_column(component) %></td>
+            <td class="actions-td">
+              <%= link_to "Edit", edit_admin_component_path(component), class: "button -small" %><%= link_to "Delete", admin_component_path(component), class: "button -small", method: :delete, :data => { confirm: "Are you sure you want to delete this component? This action is irreversible." } %>
+            </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

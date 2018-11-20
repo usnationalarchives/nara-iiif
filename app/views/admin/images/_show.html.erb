@@ -1,0 +1,20 @@
+<%= show_table do %>
+  <thead>
+    <%= show_thead_tr %>
+  </thead>
+  <tbody>
+    <%= show_tr :id %>
+    <%= show_tr :title %>
+    <%= show_tr "Original File", link_to(@resource.image_file.url(:original), @resource.image_file.url(:original)) %>
+    <%= show_tr "Full Width Shortcode", "[[image #{@resource.id}]]", class: "monospace" %>
+    <%= show_tr "Left Aligned Shortcode", "[[image-left #{@resource.id}]]", class: "monospace" %>
+    <%= show_tr "Right Aligned Shortcode", "[[image-right #{@resource.id}]]", class: "monospace" %>
+    <%= show_tr "Markdown Embed", "![#{@resource.alt_text}](#{@resource.image_file.url(:original)})", class: "monospace" %>
+    <%= show_tr "Preview", image_tag(@resource.image_file.url(:medium), alt_text: @resource.alt_text, style: "display: block; max-width: 520px; width: 100%;") %>
+    <%= show_tr :alt_text %>
+    <%= show_tr :attribution %>
+    <%= show_tr :keywords %>
+    <%= show_tr :updated_at %>
+    <%= show_tr :created_at %>
+  </tbody>
+<% end %>

@@ -1,0 +1,10 @@
+Description:
+    Creates the minimum requirements for managed taxonomy model
+
+Example:
+    rails generate shortline:taxonomy ModelName
+
+    This will create:
+        app/models/model_name.rb
+        app/models/concerns/auto_sluggable.rb
+        app/views/admin/model_name_plural/_form.html.erb

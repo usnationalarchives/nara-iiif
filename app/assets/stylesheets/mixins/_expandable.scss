@@ -1,0 +1,49 @@
+//------------------------------------------------------------------------
+// Expand/collapse styles
+// For use with https://github.com/Threespot/expand-toggle
+//------------------------------------------------------------------------
+
+// Default mixin, slides content down using “translateY” but won’t change the height
+@mixin expandable($speed: 500ms, $easing: fs-easing('easeOutCubic')) {
+  // Expanded
+  &,
+  .js &[aria-hidden="false"] {
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform $speed $easing,
+                visibility 0s linear 0s;
+    visibility: visible;
+  }
+
+  // Collapsed
+  &[aria-hidden="true"],
+  // Selector below prevents a flash of unstyled content (FOUC)
+  .js &:not([aria-hidden]) {
+    transform: translateY(-100%);
+    transition: transform $speed $easing,
+                visibility 0s linear $speed;
+    visibility: hidden;
+  }
+}
+
+// Use this mixin when applying the “data-expands-height” attribute
+@mixin expandable-height($speed: 500ms, $easing: fs-easing('easeOutCubic')) {
+  // Expanded
+  &,
+  .js &[aria-hidden="false"] {
+    overflow: hidden;
+    transition: max-height $speed $easing,
+                visibility 0s linear 0s;
+    visibility: visible;
+  }
+
+  // Collapsed
+  &[aria-hidden="true"],
+  // Selector below prevents a flash of unstyled content (FOUC)
+  .js &:not([aria-hidden]) {
+    max-height: 0 !important;// !important required to override inline styles added by JS
+    transition: max-height $speed $easing,
+                visibility 0s linear $speed;
+    visibility: hidden;
+  }
+}

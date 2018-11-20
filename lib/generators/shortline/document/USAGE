@@ -1,0 +1,12 @@
+Description:
+    Creates the minimum requirements for managed document model
+
+Example:
+    rails generate shortline:document
+
+    This will create:
+        app/models/document.rb
+        app/models/concerns/uniquely_identifiable.rb
+        app/views/admin/documents/_form.html.erb
+        app/views/admin/documents/_index.html.erb
+        app/views/admin/documents/_show.html.erb

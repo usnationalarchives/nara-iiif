@@ -1,0 +1,342 @@
+<style>
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+code {
+  background-color: #eee;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: normal;
+  padding: 0.0625em 0.1875em;
+}
+
+.caption {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.c-red {
+  font-weight: bold;
+}
+</style>
+
+<div class="l-padding u-mt5">
+  <div class="l-wrap--narrow">
+    <a href="<%= prototypes_index_path %>">←Back to Components</a>
+
+    <h1 class="u-mt2" style="font-size: 3em; font-weight: bold;">Script Examples</h1>
+
+    <%# Rich text content %>
+    <div class="u-richtext f-scale-body u-mt2 u-mb10">
+      <ul class="u-mb4">
+        <li><a href="#toc-mailto">Mailto Obfuscation</a></li>
+        <li><a href="#freeze-scroll">Freeze Scroll</a></li>
+        <li><a href="#fluid-svg">Fluid SVG Polyfill</a></li>
+        <li><a href="#aria-label">Auto add <code>aria-label</code> text</a></li>
+        <li><a href="#object-fit"><code>object-fit</code> Image Polyfill</a></li>
+        <li><a href="#toc-expand-toggle">Expand/Collapse Toggle</a></li>
+        <li><a href="#toc-orphans">Text Orphans</a></li>
+      </ul>
+
+      <h2>Modal Window</h2>
+      <p><a id="my-modal-toggle" href="#my-modal" data-modal="my-modal">Open dialog</a></p>
+      <div class="Modal" id="my-modal" aria-label="My modal window">
+        <div class="Modal-content">
+          <p>Modal window contents</p>
+          <ul>
+            <li>
+              <a href="#1">Link 1</a>
+            </li>
+            <li>
+              <a href="#1">Link 2</a>
+            </li>
+            <li>
+              <a href="#1">Link 3</a>
+            </li>
+          </ul>
+
+          <button type="button">Button</button>
+
+          <form action="#" method="get">
+            <label for="test-input">Example Field</label>
+            <input type="text" name="test-input" value="" id="test-input">
+
+            <select class="js-custom-select" id="flavor" name="flavor" data-validate="notempty" aria-required="true">
+              <option value="" selected disabled>Select a flavor</option>
+              <option value="flavor_1">Chocolate</option>
+              <option value="flavor_2">Vanilla</option>
+            </select>
+
+            <div class="u-mb1">
+              <input type="radio" name="vessel" value="sugar" id="vessel_sugar">
+              <label for="vessel_sugar">Sugar cone</label>
+            </div>
+            <div class="u-mb1">
+              <input type="radio" name="vessel" value="waffle" id="vessel_waffle">
+              <label for="vessel_waffle">Waffle cone</label>
+            </div>
+
+            <%# Put the input _before_ the label so we can add custom styles without JS (see _inputs.scss) %>
+            <div class="u-mb1 u-mt1">
+              <input type="checkbox" name="toppings" value="fudge" id="topping_fudge">
+              <label for="topping_fudge">Hot fudge</label>
+            </div>
+            <div class="u-mb1">
+              <input type="checkbox" name="toppings" value="caramel" id="topping_caramel">
+              <label for="topping_caramel">Caramel</label>
+            </div>
+
+            <input type="submit" value="Submit">
+          </form>
+
+          <a class="Modal-close" href="#my-modal-toggle" data-modal-close>Close</a>
+        </div>
+      </div>
+
+      <h2 id="toc-mailto">Tooltips</h2>
+      <p>Cultivate <a href="/glossary#foo" data-tooltip title="Definition: Bar.">foo</a> challenges <a href="/glossary#amicus-brief" data-tooltip title="Definition: Amicus briefs are legal documents filed in appellate court cases by non-litigants with a strong interest in the subject matter.">amicus brief</a> and opportunities, unprecedented challenge empathetic strengthening infrastructure systems thinking impact investing thought partnership technology collaborative consumption. Ideate, issue outcomes, design thinking deep dive agile natural resources; improve the world; cultivate mobilize greenwashing ecosystem families problem-solvers change-makers. Global social entrepreneur; black lives matter relief; white paper efficient thought leadership communities circular ideate inspirational mobilize social impact boots on the ground.</p>
+
+      <h2 id="toc-mailto">Mailto Obfuscation</h2>
+      <p>NPM: <a href="https://www.npmjs.com/package/@threespot/mailto">@threespot/mailto</a></p>
+      <p>create a span with <code>data-email</code> attribute containing the encoded email address such as <code>hello[at]threespot.com</code></p>
+      <span data-email="hello[at]threespot.com" class="testing"><b>hello[at]threespot.com</b></span>
+
+      <h2 id="freeze-scroll">Freeze Scroll Toggle</h2>
+      <p>NPM: <a href="https://www.npmjs.com/package/@threespot/freeze-scroll">@threespot/freeze-scroll</a></p>
+      <button class="btn scroll-toggle" type="button">Toggle Scrolling</button>
+
+      <h2 id="fluid-svg">Fluid SVG Polyfill</h2>
+      <p>NPM: <a href="https://www.npmjs.com/package/@threespot/fluid-svg-polyfill">@threespot/fluid-svg-polyfill</a></p>
+      <p>Note: Will only run in IE 11 and below.</p>
+      <style>
+        .is-fluid {
+          display: block;
+          height: auto;
+          width: 100%;
+        }
+      </style>
+      <%= svg 'threespot-logo', {class:"is-fluid", width:"200"} %>
+
+      <h2 id="aria-label">Add lowercase <code>aria-label</code> text</h2>
+      <p>Note: This typically isn’t needed, but there are occasional edge cases.</p>
+
+      <p class="f-uppercase">Uppercase text <code>aria-label</code> test</p>
+      <p class="f-uppercase">THIS TEXT IS UPPERCASE IN THE HTML</p>
+
+      <h2 id="object-fit"><code>object-fit</code> Image Polyfill</h2>
+      <p>NPM: <a href="https://www.npmjs.com/package/@threespot/object-fit-image">@threespot/object-fit-image</a></p>
+      <p>Note: Will only run in IE 11 and below.</p>
+
+      <h3 class="u-mt2-em">Example 1: <code>&lt;picture&gt;</code> as background image</h3>
+      <p><strong>Note:</strong> Use <code>&lt;picture&gt;</code> to control which image is shown at specific breakpoints (i.e. art direction).</p>
+      <picture class="u-aspect--wide bg-image">
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="https://satyr.io/980x16:9/4" media="(min-width: 980px)">
+        <source srcset="https://satyr.io/768x16:9/3" media="(min-width: 768px)">
+        <source srcset="https://satyr.io/480x16:9/2" media="(min-width: 480px)">
+        <!--[if IE 9]></video><![endif]-->
+        <img class="bg-image-source" src="https://satyr.io/320x16:9/1" alt="Image description 2 test.">
+      </picture>
+
+      <h3 class="u-mt2-em">Example 2: <code>&lt;picture&gt;</code> wrapped in <code>&lt;div&gt;</code></h3>
+      <div class="u-aspect--wide bg-image">
+        <picture class="bg-image-source">
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source srcset="https://satyr.io/980x16:9/4" media="(min-width: 980px)">
+          <source srcset="https://satyr.io/768x16:9/3" media="(min-width: 768px)">
+          <source srcset="https://satyr.io/480x16:9/2" media="(min-width: 480px)">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="https://satyr.io/320x16:9/1" alt="Image description 1 test.">
+        </picture>
+      </div>
+
+      <h3 class="u-mt2-em">Example 3: <code>&lt;img&gt;</code> with <code>srcset</code> wrapped in <code>&lt;div&gt;</code></h3>
+      <p><strong>Note:</strong> Use <code>srcset</code> for multiple sizes/resolutions of the same image. The browser will decide which image source it should use.</p>
+      <div class="u-aspect--wide bg-image">
+        <img class="bg-image-source" src="https://satyr.io/320x16:9?text=Low+Res" srcset="https://satyr.io/320x16:9?text=Low+Res 320w, https://satyr.io/640x16:9?text=Medium+Res 640w, https://satyr.io/980x16:9?text=High+Res 980w" alt="Image description 3 test.">
+      </div>
+
+      <h2 id="toc-expand-toggle">Expand/Collapse Toggle</h2>
+      <p>NPM: <a href="https://www.npmjs.com/package/@threespot/expand-toggle">@threespot/expand-toggle</a></p>
+      <style>
+        /*
+          This is just an example. Typically, this would be used for absolutely-positioned
+          menus that are transformed in and out of the viewport.
+        */
+        .fadeToggle,
+        .js .fadeToggle[aria-hidden="false"] {
+          margin-bottom: 0 !important;
+          margin-top: 0 !important;
+          opacity: 1;
+          overflow: hidden;
+          transition: max-height 0s linear 0s,
+                      opacity 250ms ease-in-out,
+                      visibility 0s linear 0s;
+          visibility: visible;
+        }
+
+        .fadeToggle[aria-hidden="true"],
+        /* Add selector below to prevent FOUC */
+        .js .fadeToggle:not([aria-hidden]) {
+          max-height: 0;
+          opacity: 0;
+          transition: max-height 0s linear 250s,
+                      opacity 250ms ease-in-out,
+                      visibility 0s linear 250ms;
+          visibility: hidden;
+        }
+
+        .menu-wrap {
+          padding-bottom: 1em;
+        }
+      </style>
+
+      <button class="no-js-hide u-mb2" type="button" data-expands="menu-1">Toggle Menu</button>
+
+      <div class="fadeToggle u-mb2" id="menu-1">
+        <!-- Wrapper is for demo styling purposes, not required -->
+        <div class="menu-wrap">
+          <p>Basic menu example</p>
+          <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <style>
+        .expandable,
+        .js .expandable[aria-hidden="false"] {
+          margin-bottom: 0 !important;
+          margin-top: 0 !important;
+          overflow: hidden;
+          transition: max-height 400ms ease-in-out,
+                      visibility 0s linear 0s;
+          visibility: visible;
+        }
+
+        .expandable[aria-hidden="true"],
+        /* Add selector below to prevent FOUC */
+        .js .expandable:not([aria-hidden]) {
+          max-height: 0 !important;
+          transition: max-height 400ms ease-in-out,
+                      visibility 0s linear 400ms;
+          visibility: hidden;
+        }
+      </style>
+
+      <button class="no-js-hide u-mb2" type="button" data-expands="menu-2" data-expands-class="is-expanded" data-expands-height>
+        <span data-expands-text="Close">Slide Toggle Menu</span>
+      </button>
+
+      <div class="expandable" id="menu-2">
+        <!-- Wrapper is for demo styling purposes, not required -->
+        <div class="menu-wrap">
+          <p>Height toggle example with custom class and button text</p>
+          <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .example-orphans {
+        display: block;
+        background-color: #ddd;
+        max-width: 275px;
+      }
+
+      .dev-highlight-orphans .u-nowrap:not(.is-external) {
+        border: 2px solid red;
+      }
+
+      .arrow-icon {
+        display: inline-block;
+        fill: currentColor;
+        height: auto;
+        margin-left: 4px;
+        vertical-align: middle;
+        width: 0.375em;
+      }
+    </style>
+
+    <div class="dev-highlight-orphans u-richtext f-scale-body u-mt4 u-mb6">
+      <h2 id="toc-orphans">Text Orphans</h2>
+      <p>NPM: <a href="https://www.npmjs.com/package/@threespot/unorphanize">@threespot/unorphanize</a></p>
+      <p>Applying the <code>data-orphans</code> attribute will wrap prevent the last two words from breaking to a new line.</p>
+
+      <p>A <span class="u-nowrap">red border</span> is shown around the <code>&lt;span class="u-nowrap"&gt;</code> elements below to make it easy to visualize what’s happening. With JavaScipt disabled, all lines have a single word orphan.</p>
+
+      <h3>Defaults to wrapping last 2 words:</h3>
+      <ol>
+        <li data-orphans style="max-width: 299px">First second third fourth fifth sixth.</li>
+        <li data-orphans style="max-width: 299px">First second third fourth <b>fifth sixth</b>.</li>
+        <li data-orphans style="max-width: 299px">First second third <b>fourth fifth sixth</b>.</li>
+        <li data-orphans style="max-width: 299px">First second third <b>fourth</b> fifth sixth.</li>
+        <li data-orphans style="max-width: 299px">First second third fourth <b>fifth</b> sixth.</li>
+        <li data-orphans style="max-width: 299px">First second third fourth fifth <b>sixth</b>.</li>
+        <li data-orphans style="max-width: 299px">First second third <b>fourth</b> fifth <b>sixth</b>.</li>
+        <li data-orphans style="max-width: 299px">First second third fourth <b>fifth</b> <i>sixth</i>.</li>
+      </ol>
+
+      <h3>Inline SVGs count as words:</h3>
+      <ol>
+        <li data-orphans style="max-width: 317px">First second third fourth fifth sixth. <%= svg "icons/external", width: 16 %></li>
+        <li data-orphans style="max-width: 317px">First second third <b>fourth</b> fifth sixth. <%= svg "icons/external", width: 16 %></li>
+        <li data-orphans style="max-width: 317px">First second third fourth <b>fifth</b> sixth. <%= svg "icons/external", width: 16 %></li>
+        <li data-orphans style="max-width: 317px">First second third fourth fifth <b>sixth.</b> <%= svg "icons/external", width: 16 %></li>
+        <li data-orphans style="max-width: 317px">First second third <b>fourth</b> fifth <b>sixth.</b> <%= svg "icons/external", width: 16 %></li>
+        <li data-orphans style="max-width: 317px">First second third fourth <b>fifth</b> <i>sixth.</i> <%= svg "icons/external", width: 16 %></li>
+      </ol>
+
+      <h3>Can define custom word count using <code>data-orphans="3"</code>:</h3>
+      <ol>
+        <li data-orphans="3" style="max-width: 299px">First second third fourth fifth sixth.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third fourth <b>fifth sixth</b>.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third <b>fourth fifth sixth</b>.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third <b>fourth</b> fifth sixth.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third fourth <b>fifth</b> sixth.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third fourth fifth <b>sixth</b>.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third <b>fourth</b> fifth <b>sixth</b>.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third <b>fourth fifth</b> sixth.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third <b>fourth fifth</b> <i>sixth</i>.</li>
+        <li data-orphans="3" style="max-width: 299px">First second third <b>fourth</b> <i>fifth sixth</i>.</li>
+      </ol>
+
+      <h3>The script will never break child elements, so these examples will do nothing.</h3>
+      <ol>
+        <li data-orphans>First second third <b>fourth fifth</b> sixth.</li>
+        <li data-orphans>First second third fourth <b>fifth sixth.</b> <%= svg "icons/external", width: 16 %></li>
+        <li data-orphans>First second third <b>fourth fifth sixth.</b> <%= svg "icons/external", width: 16 %></li>
+      </ol>
+    </div>
+
+    <div class="dev-highlight-orphans u-richtext f-scale-body u-mt4 u-mb6">
+      <h2 id="toc-orphans">Link Icons</h2>
+      <p>Applying the <code>data-icon</code> attribute will append an arrow icon and prevent it from wrapping to a new line by itself.</p>
+      <p>This relies on <a href="https://www.npmjs.com/package/@threespot/unorphanize">@threespot/unorphanize</a> under the hood.</p>
+
+      <ol>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third fourth fifth sixth</a></li>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third fourth <b>fifth sixth</b></a></li>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third <b>fourth fifth sixth</b></a></li>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third <b>fourth</b> fifth sixth</a></li>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third fourth <b>fifth</b> sixth</a></li>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third fourth fifth <b>sixth</b></a></li>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third <b>fourth</b> fifth <b>sixth</b></a></li>
+        <li style="max-width: 257px"><a href="#" data-icon>First second third fourth <b>fifth</b> <i>sixth</i></a></li>
+      </ol>
+    </div>
+
+
+  </div>
+</div>

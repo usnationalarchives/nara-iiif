@@ -1,0 +1,192 @@
+<div class="l-padding u-mt5">
+  <div class="l-wrap--narrow">
+    <a href="<%= root_url %>">←Back to home</a>
+
+    <h1 class="u-mt2" style="font-size: 3em; font-weight: bold;">Components</h1>
+
+    <%# Rich text content %>
+    <div class="u-richtext f-scale-body u-mt2 u-mb10">
+      <ul class="u-mb4">
+        <li><a href="#toc-lists">Lists</a></li>
+        <li><a href="#toc-tables">Tables</a></li>
+        <li><a href="#toc-buttons">Buttons</a></li>
+        <li><a href="#toc-respsonsive-images">Responsive Images</a></li>
+        <li><a href="#toc-respsonsive-videos">Responsive Videos</a></li>
+        <!-- <li><a href="#toc-background-colors">Background Colors</a></li> -->
+      </ul>
+
+      <h2>Heading Level 2</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      <h3>Header Level 3</h3>
+      <p>Vivamus magna justo, lacinia eget consectetur sed, att tellus. Donec sollicitudin molestie malesuada.</p>
+
+      <h4>Header Level 4</h4>
+      <p>Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus. Cras ultricies ligula sed magna dictum porta.</p>
+
+      <h5>Header Level 5</h5>
+      <p><span data-email="hello[at]threespot.com">Email us</span> ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+      <h6>Header Level 6</h6>
+
+      <p><a href="#footer">Skip to footer</a> senectus et <strong>netus et malesuada</strong> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies <strong>mi vitae est.</strong></em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, <code>condimentum sed, commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. <a href="https://www.google.com">External link</a></p>
+
+      <div class="">
+        <h2>Nested component test</h2>
+        <p><a href="#footer">Skip to footer</a> senectus et <strong>netus et malesuada</strong> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper sit amet, wisi. Donec non enim in turpis pulvinar facilisis. Ut felis. <a href="https://www.google.com">External link</a></p>
+      </div>
+
+      <h2 id="toc-lists">Lists</h2>
+
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          <ol>
+            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+            <li>Aliquam tincidunt mauris eu risus.</li>
+          </ol>
+        </li>
+        <li>Aliquam tincidunt mauris eu risus.
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+            <li>Aliquam tincidunt mauris eu risus.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      <ol>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          <ol>
+            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+            <li>Aliquam tincidunt mauris eu risus.</li>
+          </ol>
+        </li>
+        <li>Aliquam tincidunt mauris eu risus.
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+            <li>Aliquam tincidunt mauris eu risus.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p>Billionaire philanthropy, global leaders working alongside assistance empower action sharing economy social good human being relief approach affiliate. Respect engage benefit global citizens urban; democratizing the global financial system necessities employment truth connect developing change rural inclusive.</p>
+
+      <h2 id="toc-tables" class="u-mt6">Tables</h2>
+      <table>
+        <caption>Table 1: Company data</caption>
+        <thead>
+          <tr>
+            <th scope="col">Company</th>
+            <th scope="col">Employees</th>
+            <th scope="col">Founded</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ACME Inc</td>
+            <td>1000</td>
+            <td>1947</td>
+          </tr>
+          <tr>
+            <td>XYZ Corp</td>
+            <td>2000</td>
+            <td>1973</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="toc-buttons" class="u-mt6">Buttons</h2>
+      <button class="btn" type="button">Button</button>
+      <a class="btn" href="#button">Link Button</a>
+
+      <h2 id="toc-respsonsive-images" class="u-mt6">Responsive Images</h2>
+
+      <h4><code>&lt;img&gt;</code> with <code>srcset</code> and width values</h4>
+      <p>Browsers automatically takes size and screen resolution into account to determine when to switch image sources (see <a href="http://jsbin.com/qumuqug/edit?html,output">demo</a>).</p>
+
+<pre class="u-mb2">
+srcset="https://satyr.io/320x16:9 320w,
+        https://satyr.io/640x16:9 640w,
+        https://satyr.io/980x16:9 980w"
+</pre>
+
+      <img src="https://satyr.io/320x16:9" srcset="https://satyr.io/320x16:9 320w, https://satyr.io/640x16:9 640w, https://satyr.io/980x16:9 980w" alt="">
+
+      <h4><code>&lt;img&gt;</code> with <code>srcset</code> for high-res images</h4>
+
+<pre class="u-mb2">
+srcset="https://satyr.io/400x16:9?text=1x%20Image 1x,
+        https://satyr.io/800x16:9?text=2x%20Image 2x
+</pre>
+
+      <img src="https://satyr.io/320x16:9" srcset="https://satyr.io/400x16:9?text=1x%20Image 1x, https://satyr.io/800x16:9?text=2x%20Image 2x" alt="">
+
+      <h4><code>&lt;picture&gt;</code> with 4 sources</h4>
+      <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="https://satyr.io/980x16:9/4" media="(min-width: 980px)">
+        <source srcset="https://satyr.io/768x16:9/3" media="(min-width: 768px)">
+        <source srcset="https://satyr.io/480x16:9/2" media="(min-width: 480px)">
+        <!--[if IE 9]></video><![endif]-->
+        <img src="https://satyr.io/320x16:9/1" alt="">
+      </picture>
+
+      <p class="u-mt3">Detection, solution meaningful cause international, citizenry, justice. Dialogue climate change smart cities advocate, civil society end hunger Cesar Chavez tackling challenges of our times replicable environmental social impact.</p>
+
+      <h2 id="toc-respsonsive-videos">Responsive Videos</h2>
+
+      <%# Consider lazy-loading videos where there are multiple to improve performance and save bandwidth.  %>
+
+      <%# Vimeo Shortcode %>
+      <p>Vimeo shortcode using <code>data-vimeo</code> attribute</p>
+      <div class="Video u-aspect--wide" data-vimeo="65171201">
+        <a class="Video-link" href="https://vimeo.com/65171201">Watch video on Vimeo</a>
+      </div>
+
+      <%# Vimeo iframe %>
+      <p>Vimeo default embed</p>
+      <iframe src="https://player.vimeo.com/video/65171201" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+      <%# YouTube Shortcode %>
+      <p>YouTube shortcode <code>data-youtube</code> attribute</p>
+      <div class="Video u-aspect--wide" data-youtube="FuYW3GdPhsc">
+        <a class="Video-link" href="https://www.youtube.com/watch?v=FuYW3GdPhsc">Watch video on YouTube</a>
+      </div>
+
+      <%# YouTube Iframe %>
+      <p>YouTube default embed</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/FuYW3GdPhsc" frameborder="0" allowfullscreen></iframe>
+
+      <h2 id="toc-respsonsive-iframes">Responsive Iframes</h2>
+
+      <p>Responsive iframe test</p>
+      <iframe width="900" height="600" src="//en.wikipedia.org/wiki/Main_Page" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+      <p>Iframe with no height/width attribute (defaults to 16:9)</p>
+      <iframe src="//en.wikipedia.org/wiki/Main_Page" frameborder="0" allowfullscreen></iframe>
+
+
+      <p>Raise awareness inspiration, natural resources minority facilitate, initiative Ford Foundation disrupt compassion innovate NGO. Reproductive rights impact; donation medical supplies country donors shift; aid save lives scalable evolution capacity building. Enable, governance public-private partnerships disruption process. World problem solving Millennium Development Goals, assessment expert; deep engagement healthcare Martin Luther King Jr. fellows nonprofit legal aid countries. Activism lifting people up combat poverty change movements; Aga Khan foundation policy dialogue The Elders communities criteria. Organization clean water generosity honor Jane Addams reduce child mortality health prosperity asylum gender our grantees and partners.</p>
+    </div><%# end u-richtext %>
+
+  </div>
+</div>
+
+<%# Background color examples (requires helper classes in _color-helpers.scss) %>
+<%#
+<div class="u-center u-mt4">
+  <h2 id="toc-background-colors" class="u-mt6">Background Colors</h2>
+  <ul>
+    <li class="bg-red c-auto">Auto text color</li>
+    <li class="bg-orange c-auto">Auto text color</li>
+    <li class="bg-yellow c-auto">Auto text color</li>
+    <li class="bg-green c-auto">Auto text color</li>
+    <li class="bg-blue c-auto">Auto text color</li>
+    <li class="bg-purple c-auto">Auto text color</li>
+    <li class="bg-white c-auto">Auto text color</li>
+    <li class="bg-gray c-auto">Auto text color</li>
+    <li class="bg-black c-auto">Auto text color</li>
+  </ul>
+</div>
+%>

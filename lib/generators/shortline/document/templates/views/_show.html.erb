@@ -1,0 +1,20 @@
+<%= show_table do %>
+
+  <thead>
+    <%= show_thead_tr %>
+  </thead>
+  <tbody>
+
+    <%= show_tr "Created At", @resource.created_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+    <%= show_tr "Updated At", @resource.updated_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+
+    <%= show_tr :title %>
+    <%= show_tr "Markdown link", "[#{@resource.title}](#{document_path(@resource)})", class:"monospace" %>
+    <%= show_tr "Original File", link_to(@resource.attachment.url(:original), @resource.attachment.url(:original)) %>
+    <%= show_tr "Original Filename", @resource.attachment_file_name, class:"monospace" %>
+    <%= show_tr "Original MIME", @resource.attachment_content_type, class:"monospace" %>
+    <%= show_tr "Original Size", number_to_human_size(@resource.attachment_file_size), class:"monospace" %>
+
+  </tbody>
+
+<% end %>

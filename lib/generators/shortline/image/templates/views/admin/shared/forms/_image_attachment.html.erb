@@ -1,0 +1,7 @@
+<%= f.fields_for image_attachment, f.object.send(image_attachment) || ImageAttachment.new do |cf| %>
+
+  <%= cf.label :image_id, image_attachment.to_s.gsub("_image_attachment", "").humanize %>
+  <%= cf.image_association_select :image_id, Image.order("title asc"), :id, :title, :cms_preview, include_blank: "No Image" %>
+  <%= cf.hint hint %>
+
+<% end %>

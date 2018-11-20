@@ -1,0 +1,17 @@
+<%= show_table do %>
+  <thead>
+    <%= show_thead_tr %>
+  </thead>
+  <tbody>
+    <%= show_tr "Created At", @resource.created_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+    <%= show_tr "Updated At", @resource.updated_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+
+    <%= show_tr :id %>
+    <%= show_tr :name %>
+    <%= show_tr :title %>
+
+    <%= show_tr "URL", link_to(person_url(@resource.slug), person_url(@resource.slug), target:"_blank") %>
+
+    <%= show_tr "Biography", pill("markdown", color: "grey") %>
+  </tbody>
+<% end %>

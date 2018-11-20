@@ -1,0 +1,28 @@
+<div class="Embed u-mt4 u-mb4">
+  <div class="Embed-video">
+
+    <% vimeo_uri = service_uri("//player.vimeo.com/video/#{id}", {
+      color: "#1DAEEC", # Brand the color controls
+      badge: 0, # No user badge
+      portrait: 0, # No user portrait
+      title: 0, # No video title
+      byline: 0, # No video description
+    }) %>
+
+    <iframe src="<%= vimeo_uri %>"
+      title="<%= title.presence || "A video on Vimeo" %>"
+      frameborder="0"
+      webkitallowfullscreen
+      mozallowfullscreen
+      allowfullscreen>
+      This video requires an frame-capable browser.
+      <% if alternate_uri.present? %>
+        <%= link_to "See alternative content for #{title}", alternate_uri %>
+      <% else %>
+        <%= link_to "Watch #{title} on Vimeo", "https://vimeo.com/#{id}" %>
+      <% end %>
+    </iframe>
+
+  </div>
+</div>
+

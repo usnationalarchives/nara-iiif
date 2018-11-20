@@ -1,0 +1,44 @@
+<style>
+@keyframes bgSlide {
+  0% { background-position: 0 0; }
+  100% { background-position: 500% 0; }
+}
+
+html {
+  animation: 120s linear infinite bgSlide;
+  /*  https://coolors.co/e93f89-e9893f-e8b53e-7bc95a-449dc9 */
+  background-image: linear-gradient(to right, #e93f89, #e9893f 20%, #e8b53e 40%, #7bc95a 60%, #449dc9 80%, #e93f89 100%);
+  background-size: 500% 100%;
+  overflow: hidden;
+  transform: rotate(45deg);
+  width: 100%;
+}
+
+body {
+  text-shadow: 1px 1px 0 rgba(255,255,255, 0.2);
+  transform: rotate(-45deg)
+}
+
+.Header,
+.Footer {
+  display: none;
+}
+
+a {
+  text-shadow: none;
+}
+</style>
+
+<div class="u-center">
+  <div class="u-mt4">
+    Rails <%= Rails::VERSION::STRING %> ·
+    Tolaria <%= Tolaria::VERSION::STRING %> ·
+    PostgreSQL <%= ActiveRecord::Base.connection.postgresql_version %>
+  </div>
+
+  <h1 class="u-mt4 u-mb1" style="font-weight:100; font-size:300%"><%= current_action %></h1>
+
+  <p>Nice! You booted Shortline on Rails <%= Rails::VERSION::STRING %>. <span style="font-size: 3rem;">👍</span></p>
+
+  <p><a class="c-link-white" href="/admin">Login</a> to the admin or check out the <a class="c-link-white" href="/prototypes">components page</a>.</p>
+</div>

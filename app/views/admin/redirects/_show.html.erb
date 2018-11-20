@@ -1,0 +1,30 @@
+<%= show_table do %>
+
+  <thead>
+    <%= show_thead_tr %>
+  </thead>
+  <tbody>
+
+    <%= show_tr :id %>
+    <%= show_tr "Created At", @resource.created_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+    <%= show_tr "Updated At", @resource.updated_at.try(:strftime, "%Y-%m-%d %I:%M %p"), class:"monospace" %>
+
+    <%= show_tr "Original Path", link_to(@resource.original_path.to_s, @resource.original_path.to_s) %>
+    <%= show_tr "Target URI", link_to(@resource.target_uri.to_s, @resource.target_uri.to_s) %>
+    <% case @resource.parameter_preservation_mode %>
+    <% when "outgoing" %>
+      <% if @resource.parsed_target_uri.query.present? %>
+        <%= show_tr "Query Parameters", "Query parameters are set on the Target URI, the full Target URI will be used." %>
+      <% else %>
+        <%= show_tr "Query Parameters", "No parameters are set on the Target URI, and none will be used." %>
+      <% end %>
+    <% when "incoming" %>
+      <%= show_tr "Query Parameters", "Incoming query parameters are written onto the Target URI" %>
+      <% test_uri = @resource.parsed_original_path %>
+      <% test_uri.query = "test=#{SecureRandom.hex}" %>
+      <%= show_tr "Test Link", link_to(test_uri.to_s, test_uri.to_s) %>
+    <% end %>
+
+  </tbody>
+
+<% end %>

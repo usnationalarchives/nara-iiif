@@ -1,0 +1,21 @@
+Description:
+    Creates the minimum requirements for a curated item/collection
+
+Example:
+    rails generate shortline:curation
+
+    This will create:
+        # app/models/curated_item.rb
+        # app/models/concerns/collection_prioritizable.rb
+        # app/models/concerns/has_curated_collections.rb
+        # app/models/concerns/has_curated_items.rb
+        # app/views/admin/shared/forms/_curated_collection.html.erb
+        # app/views/admin/shared/forms/_curated_item.html.erb
+        # app/assets/stylesheets/admin/views/fields/_curated_item.scss
+        # app/assets/javascripts/admin/views/fields/curated_item.js
+        # db/migrate/###########_create_curated_items.rb
+
+
+    This will modify:
+        # app/assets/javascripts/admin/admin.js
+        # config/initializers/tolaria_form_builder.rb

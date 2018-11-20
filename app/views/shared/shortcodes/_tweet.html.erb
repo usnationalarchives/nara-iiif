@@ -1,0 +1,7 @@
+<div class="Embed Embed--<%= position %>">
+  <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-cards="hidden">
+    <%= link_to "Tweet number #{tweet_id} on Twitter", "https://twitter.com/twitter/statuses/#{tweet_id}" %>
+  </blockquote>
+  <%= javascript_include_tag "https://platform.twitter.com/widgets.js", async:true, defer:true %>
+</div>
+
