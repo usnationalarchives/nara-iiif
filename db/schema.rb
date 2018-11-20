@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623172545) do
+ActiveRecord::Schema.define(version: 20181120212804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,34 @@ ActiveRecord::Schema.define(version: 20160623172545) do
     t.integer "sessions_created", default: 0, null: false
     t.index ["auth_token"], name: "index_administrators_on_auth_token"
     t.index ["email"], name: "index_administrators_on_email"
+  end
+
+  create_table "image_attachments", force: :cascade do |t|
+    t.bigint "image_id"
+    t.integer "imageable_id", null: false
+    t.string "imageable_type", null: false
+    t.string "collection", null: false
+    t.integer "weight", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection"], name: "index_image_attachments_on_collection"
+    t.index ["image_id"], name: "index_image_attachments_on_image_id"
+    t.index ["imageable_id"], name: "index_image_attachments_on_imageable_id"
+    t.index ["imageable_type"], name: "index_image_attachments_on_imageable_type"
+  end
+
+  create_table "images", id: :serial, force: :cascade do |t|
+    t.string "title", null: false
+    t.string "alt_text", null: false
+    t.string "caption"
+    t.text "keywords"
+    t.string "attribution"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_file_name"
+    t.string "image_file_content_type"
+    t.integer "image_file_file_size"
+    t.datetime "image_file_updated_at"
   end
 
   create_table "miscellany", force: :cascade do |t|
