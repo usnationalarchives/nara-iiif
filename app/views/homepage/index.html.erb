@@ -1,46 +1,35 @@
-<style>
-@keyframes bgSlide {
-  0% { background-position: 0 0; }
-  100% { background-position: 500% 0; }
-}
+<div class="l-padding u-mt5">
+  <div class="l-wrap--narrow">
 
-html {
-  animation: 120s linear infinite bgSlide;
-  /*  https://coolors.co/e93f89-e9893f-e8b53e-7bc95a-449dc9 */
-  background-image: linear-gradient(to right, #e93f89, #e9893f 20%, #e8b53e 40%, #7bc95a 60%, #449dc9 80%, #e93f89 100%);
-  background-size: 500% 100%;
-  overflow: hidden;
-  transform: rotate(45deg);
-  width: 100%;
-}
+    <%# <h1 class="u-mt2" style="font-size: 3em; font-weight: bold;">Components</h1> %>
 
-body {
-  text-shadow: 1px 1px 0 rgba(255,255,255, 0.2);
-  transform: rotate(-45deg)
-}
+    <%# Rich text content %>
+    <div class="u-richtext f-scale-body u-mt2 u-mb10">
 
-.Header,
-.Footer {
-  display: none;
-}
+      <h2>Image API</h2>
+      <p><pre><code>/{region}/{size}/{rotation}/{quality}.{format}</code></pre></p>
 
-a {
-  text-shadow: none;
-}
-</style>
+      <h3>Size Eample</h3>
+      <%=  image_tag(Riiif::Engine.routes.url_helpers.image_path('lincoln_day', size: ',200')) %>
+      <p><pre><code><%= Riiif::Engine.routes.url_helpers.image_path('lincoln_day', size: ',200') %></code></pre></p>
 
-<div class="u-center">
-  <div class="u-mt4">
-    Rails <%= Rails::VERSION::STRING %> ·
-    Tolaria <%= Tolaria::VERSION::STRING %> ·
-    PostgreSQL <%= ActiveRecord::Base.connection.postgresql_version %>
+      <h3>Region Example</h3>
+      <%=  image_tag(Riiif::Engine.routes.url_helpers.image_path('lincoln_day', region: 'pct:45,50,100,100', size: ",200")) %>
+      <p><pre><code><%= Riiif::Engine.routes.url_helpers.image_path('lincoln_day', region: 'pct:45,0,120,140', size:'250')%></code></pre></p>
+
+      <h3>Rotation Example</h3>
+      <%=  image_tag(Riiif::Engine.routes.url_helpers.image_path('lincoln_day', rotation: '75', size:',200')) %>
+      <p><pre><code><%= Riiif::Engine.routes.url_helpers.image_path('lincoln_day', rotation: '75', size:',200')%></code></pre></p>
+
+      <h3>Quality Example</h3>
+      <%=  image_tag(Riiif::Engine.routes.url_helpers.image_path('lincoln_day', quality: 'bitonal', region: 'full', size: ",200")) %>
+      <p><pre><code><%= Riiif::Engine.routes.url_helpers.image_path('lincoln_day', quality: 'bitonal', region: 'full', size: ",200")%></code></pre></p>
+
+      <h2>Image Information</h2>
+      <a href="<%= root_url %>/image-service/lincoln_day/info.json">info.json</a>
+
+    </div><%# end u-richtext %>
+
   </div>
-
-  <h1 class="u-mt4 u-mb1" style="font-weight:100; font-size:300%"><%= current_action %></h1>
-
-  <p>Nice! You booted Shortline on Rails <%= Rails::VERSION::STRING %>. <span style="font-size: 3rem;">👍</span></p>
-
-  <p><a class="c-link-white" href="/admin">Login</a> to the admin or check out the <a class="c-link-white" href="/prototypes">components page</a>.</p>
-
-  <%=  image_tag(Riiif::Engine.routes.url_helpers.image_path('lincoln_day', size: ',300')) %>
 </div>
+
