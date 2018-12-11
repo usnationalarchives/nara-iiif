@@ -1,0 +1,104 @@
+{
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@id": "http://53decce5-83a8-4b05-a29f-a92165a3b668",
+	"@type": "sc:Manifest",
+	"label": "[Click to edit label]",
+	"metadata": [],
+	"description": [
+		{
+			"@value": "[Click to edit description]",
+			"@language": "en"
+		}
+	],
+	"license": "https://creativecommons.org/licenses/by/3.0/",
+	"attribution": "[Click to edit attribution]",
+	"sequences": [
+		{
+			"@id": "http://d9a0ae0d-fd5d-4b8b-8282-65cc4afd20dc",
+			"@type": "sc:Sequence",
+			"label": [
+				{
+					"@value": "Normal Sequence",
+					"@language": "en"
+				}
+			],
+			"canvases": [
+				{
+					"@id": "http://cb45fc22-b99e-4241-bb04-33719d8e7a9c",
+					"@type": "sc:Canvas",
+					"label": "Empty canvas",
+					"height": 1500,
+					"width": 2144,
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://430d2cf8-1fa2-46a2-933e-8cf287317389",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_1-2_ed_001/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_1-2_ed_001",
+									"profile": [
+										"http://iiif.io/api/image/2/level1.json",
+										{
+											"formats": [
+												"jpg",
+												"png"
+											]
+										}
+									]
+								},
+								"height": 1500,
+								"width": 2144
+							},
+							"on": "http://cb45fc22-b99e-4241-bb04-33719d8e7a9c"
+						}
+					],
+					"related": ""
+				},
+				{
+					"@id": "http://9288d3e4-245e-4d16-a5cb-8ec502a8b55d",
+					"@type": "sc:Canvas",
+					"label": "Empty canvas",
+					"height": "1500",
+					"width": "2144",
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://74560a97-9c44-4956-a106-00141fa4d164",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_14_ed_008/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_14_ed_008",
+									"profile": [
+										"http://iiif.io/api/image/2/level1.json",
+										{
+											"formats": [
+												"jpg",
+												"png"
+											]
+										}
+									]
+								},
+								"height": 1500,
+								"width": 975
+							},
+							"on": "http://9288d3e4-245e-4d16-a5cb-8ec502a8b55d"
+						}
+					],
+					"related": ""
+				}
+			]
+		}
+	],
+	"structures": []
+}
