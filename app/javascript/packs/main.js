@@ -30,3 +30,5 @@ import "../modules/youtube";// OPTIONAL: Tracks Vimeo video events in GTM
 import "../modules/external-links";
 import "../modules/freeze-scroll";
 import "../modules/link-icons";
+
+import "../components/viewer-leaflet";
