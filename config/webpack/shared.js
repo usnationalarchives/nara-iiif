@@ -41,6 +41,10 @@ module.exports = {
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      L: 'leaflet'
     })
   ],
 
