@@ -28,6 +28,7 @@ gem "redcarpet"                          # Markdown document processing
 gem "secure_headers", "~> 3.0"           # CSP and other security HTTP headers
 gem "seed-fu"                            # Nice fixtures
 gem 'webpacker', '~> 2.0'                # Webpack module support
+gem 'rack-cors'
 
 # ASSET PIPELINE
 gem "autoprefixer-rails"                 # Autoprefixer for Sprockets/Rails

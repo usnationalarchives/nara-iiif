@@ -135,6 +135,7 @@ GEM
     rack (2.0.5)
     rack-cache (1.7.0)
       rack (>= 0.4)
+    rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.1.2)
@@ -273,6 +274,7 @@ DEPENDENCIES
   pg
   puma
   rack-cache
+  rack-cors
   rails (~> 5.1)
   rails_12factor
   redcarpet
@@ -294,4 +296,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
