@@ -1,104 +1,298 @@
 {
-	"@context": "http://iiif.io/api/presentation/2/context.json",
-	"@id": "http://53decce5-83a8-4b05-a29f-a92165a3b668",
-	"@type": "sc:Manifest",
-	"label": "[Click to edit label]",
-	"metadata": [],
-	"description": [
-		{
-			"@value": "[Click to edit description]",
-			"@language": "en"
-		}
-	],
-	"license": "https://creativecommons.org/licenses/by/3.0/",
-	"attribution": "[Click to edit attribution]",
-	"sequences": [
-		{
-			"@id": "http://d9a0ae0d-fd5d-4b8b-8282-65cc4afd20dc",
-			"@type": "sc:Sequence",
-			"label": [
-				{
-					"@value": "Normal Sequence",
-					"@language": "en"
-				}
-			],
-			"canvases": [
-				{
-					"@id": "http://cb45fc22-b99e-4241-bb04-33719d8e7a9c",
-					"@type": "sc:Canvas",
-					"label": "Empty canvas",
-					"height": 1500,
-					"width": 2144,
-					"images": [
-						{
-							"@context": "http://iiif.io/api/presentation/2/context.json",
-							"@id": "http://430d2cf8-1fa2-46a2-933e-8cf287317389",
-							"@type": "oa:Annotation",
-							"motivation": "sc:painting",
-							"resource": {
-								"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_1-2_ed_001/full/full/0/default.jpg",
-								"@type": "dctypes:Image",
-								"format": "image/jpeg",
-								"service": {
-									"@context": "http://iiif.io/api/image/2/context.json",
-									"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_1-2_ed_001",
-									"profile": [
-										"http://iiif.io/api/image/2/level1.json",
-										{
-											"formats": [
-												"jpg",
-												"png"
-											]
-										}
-									]
-								},
-								"height": 1500,
-								"width": 2144
-							},
-							"on": "http://cb45fc22-b99e-4241-bb04-33719d8e7a9c"
-						}
-					],
-					"related": ""
-				},
-				{
-					"@id": "http://9288d3e4-245e-4d16-a5cb-8ec502a8b55d",
-					"@type": "sc:Canvas",
-					"label": "Empty canvas",
-					"height": "1500",
-					"width": "2144",
-					"images": [
-						{
-							"@context": "http://iiif.io/api/presentation/2/context.json",
-							"@id": "http://74560a97-9c44-4956-a106-00141fa4d164",
-							"@type": "oa:Annotation",
-							"motivation": "sc:painting",
-							"resource": {
-								"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_14_ed_008/full/full/0/default.jpg",
-								"@type": "dctypes:Image",
-								"format": "image/jpeg",
-								"service": {
-									"@context": "http://iiif.io/api/image/2/context.json",
-									"@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_14_ed_008",
-									"profile": [
-										"http://iiif.io/api/image/2/level1.json",
-										{
-											"formats": [
-												"jpg",
-												"png"
-											]
-										}
-									]
-								},
-								"height": 1500,
-								"width": 975
-							},
-							"on": "http://9288d3e4-245e-4d16-a5cb-8ec502a8b55d"
-						}
-					],
-					"related": ""
-				}
-			]
-		}
-	],
-	"structures": []
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://3785cba3-f674-45d9-aea5-a2016fbbc496",
+  "@type": "sc:Manifest",
+  "label": "[Click to edit label]",
+  "metadata": [],
+  "description": [
+    {
+      "@value": "[Click to edit description]",
+      "@language": "en"
+    }
+  ],
+  "license": "https://creativecommons.org/licenses/by/3.0/",
+  "attribution": "[Click to edit attribution]",
+  "sequences": [
+    {
+      "@id": "http://ab6df655-57d1-4f40-a6af-729e4e6d18c0",
+      "@type": "sc:Sequence",
+      "label": "Normal Sequence",
+      "canvases": [
+        {
+          "@id": "http://660a0891-2f26-4074-9abf-7215ff70d0eb",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 2144,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://2d694c24-4d93-47e6-ba1e-3e2e3fbd923e",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_1-2_ed_001/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_1-2_ed_001",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 2144
+              },
+              "on": "http://660a0891-2f26-4074-9abf-7215ff70d0eb"
+            }
+          ],
+          "related": ""
+        },
+        {
+          "@id": "http://2521a34c-1d95-4b6d-856a-d9f0e0a46d61",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 1891,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://4bbf10db-43e1-4dba-bbf3-7d9fd8f82277",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_3-4_ed_002/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_3-4_ed_002",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 1891
+              },
+              "on": "http://2521a34c-1d95-4b6d-856a-d9f0e0a46d61"
+            }
+          ],
+          "related": ""
+        },
+        {
+          "@id": "http://9f99a5bb-1bc2-4539-80dd-5e4a3a6b7ff7",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 1959,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://a96be524-b653-4e18-bec2-826dc32c156e",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_5-6_ed_003/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_5-6_ed_003",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 1959
+              },
+              "on": "http://9f99a5bb-1bc2-4539-80dd-5e4a3a6b7ff7"
+            }
+          ],
+          "related": ""
+        },
+        {
+          "@id": "http://c4c7a9d5-cfd4-40fe-b266-7a39e749bb27",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 1883,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://f0ae0f65-362a-40ab-af24-323796982c5b",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_7-8_ed_004/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_7-8_ed_004",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 1883
+              },
+              "on": "http://c4c7a9d5-cfd4-40fe-b266-7a39e749bb27"
+            }
+          ],
+          "related": ""
+        },
+        {
+          "@id": "http://d4183982-80f7-4082-9ee7-489ef3aafa55",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 1952,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://460cd9b5-6995-469d-afef-431f999dff3d",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_9-10_ed_005/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_9-10_ed_005",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 1952
+              },
+              "on": "http://d4183982-80f7-4082-9ee7-489ef3aafa55"
+            }
+          ],
+          "related": ""
+        },
+        {
+          "@id": "http://6a580846-2543-489b-9f60-49ca42525218",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 1874,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://c90c7a1a-ed06-4f45-b46d-5f9849bbf9dd",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_11-12_ed_006/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com//image-service/Decatur_1861_11-12_ed_006",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 1874
+              },
+              "on": "http://6a580846-2543-489b-9f60-49ca42525218"
+            }
+          ],
+          "related": ""
+        },
+        {
+          "@id": "http://3ae6b188-1a7c-4ce6-9ae4-9efd95cb4c4d",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 975,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://924f2df5-13e5-46a2-8576-d5892504a0d4",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_13_ed_007/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_13_ed_007",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 975
+              },
+              "on": "http://3ae6b188-1a7c-4ce6-9ae4-9efd95cb4c4d"
+            }
+          ],
+          "related": ""
+        },
+        {
+          "@id": "http://25b0b76b-fcd6-4e9c-b3f4-e90f83345629",
+          "@type": "sc:Canvas",
+          "label": "Empty canvas",
+          "height": 1500,
+          "width": 975,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "http://e9487317-d5bf-4337-94ed-2305b9a1c69c",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_14_ed_008/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://nara-iiif.herokuapp.com/image-service/Decatur_1861_14_ed_008",
+                  "profile": [
+                    "http://iiif.io/api/image/2/level1.json",
+                    {
+                      "formats": ["jpg", "png"]
+                    }
+                  ]
+                },
+                "height": 1500,
+                "width": 975
+              },
+              "on": "http://25b0b76b-fcd6-4e9c-b3f4-e90f83345629"
+            }
+          ],
+          "related": ""
+        }
+      ]
+    }
+  ],
+  "structures": [],
+  "viewingDirection": "left-to-right"
 }
