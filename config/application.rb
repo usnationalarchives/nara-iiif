@@ -74,6 +74,11 @@ module Shortline
     # Disable ActionDispatch::BestStandardsSupport so we can set the header ourselves
     config.action_dispatch.best_standards_support = false
 
+    config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://universalviewer.io',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  }
+
     # If you want to protect the site with HTTP Basic Auth, simply
     # define HTTP_USERNAME and HTTP_PASSWORD in the relevant environment
     # You shouldn't have to change this code below
