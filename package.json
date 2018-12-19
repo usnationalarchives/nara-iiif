@@ -41,7 +41,9 @@
     "leaflet-iiif": "^2.0.1",
     "lodash": "4.x",
     "mdn-polyfills": "5.x",
+    "mirador": "https://github.com/Threespot/mirador.git",
     "nsp": "^3.2.1",
+    "paper": "^0.12.0",
     "picturefill": "3.x",
     "what-input": "5.x"
   },

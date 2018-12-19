@@ -29,13 +29,20 @@
       <a href="<%= root_url %>/image-service/lincoln_day/info.json">info.json</a>
 
       <h2>Collection Manifest</h2>
-      <a href="<%= root_url %>/mainfest.json">manifest.json</a>
+      <p><a href="<%= root_url %>/mainfest.json">manifest.json</a></p>
+      <p><a href="https://universalviewer.io/uv.html?manifest=<%= root_url %>manifest.json#?c=0&m=0&s=0&cv=0&xywh=-258%2C0%2C2658%2C1499">Manifest loaded into Universal Viewer preview</a></p>
+
 
       <h2>Viewers</h2>
 
       <h3><a href="https://github.com/mejackreed/Leaflet-IIIF">Leaflet-IIIF</a></h3>
 
       <div id="leaflet" data-viewer-leaflet="<%= root_url %>image-service/lincoln_day/info.json">
+      </div>
+
+      <h3><a href="https://github.com/mejackreed/Leaflet-IIIF">Mirador</a></h3>
+
+      <div id="mirador" data-viewer-mirador="<%= root_url %>manifest.json">
       </div>
 
     </div><%# end u-richtext %>
