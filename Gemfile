@@ -46,6 +46,7 @@ gem "font_assets", "~> 0.1.14"           # Sets an Access-Control-Allow-Origin h
 
 # APPLICATION SPECIFIC GEMS 
 gem 'riiif'
+gem 'scout_apm'
 
 # PRODUCTION-ONLY GEMS
 group :production do

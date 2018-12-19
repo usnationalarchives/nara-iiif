@@ -199,6 +199,7 @@ GEM
       sprockets (> 2.11)
       sprockets-rails
       tilt
+    scout_apm (2.4.21)
     secure_headers (3.6.6)
       useragent (>= 0.15.0)
     seed-fu (2.3.6)
@@ -281,6 +282,7 @@ DEPENDENCIES
   riiif
   sass-rails
   sassc-rails
+  scout_apm
   secure_headers (~> 3.0)
   seed-fu
   spring
