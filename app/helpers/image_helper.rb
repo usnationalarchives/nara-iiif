@@ -11,11 +11,12 @@ module ImageHelper
   #
   # <%= image_variant_url(@post.image, :small) %>
   def image_variant_url(image, style)
-    case style.to_sym
-    when :small
-      image.image.variant(resize: "300x300").processed.service_url
-    else
-      nil
-    end
+    style = style.try(:to_sym)
+
+    operations = style == :small ? {resize: "300x300"} :
+                 style == :medium ? {resize: "600x600"} :
+                 {resize: "100x100"}
+
+    image.image.variant(operations).processed.service_url
   end
 end
