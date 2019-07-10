@@ -19,6 +19,7 @@
   <p>
     <strong>Image:</strong><br>
     <%= image_tag image_variant_url(@post.image, :small), alt: '' %>
+    <%= image_tag iiif_url_from_params(@post.image, {rotation: 90}), alt: '' %>
 
     <%# This renders a scaled asset from the IIIF image server %>
     <%#= image_tag iiif_variant_url(@post.image, :small), alt: '' %>

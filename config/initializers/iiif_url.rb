@@ -1,0 +1,1 @@
+IiifUrl.set_base_url("#{ ENV.fetch("IMAGE_API_URL") }/iiif/2");

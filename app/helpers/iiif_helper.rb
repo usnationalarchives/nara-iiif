@@ -31,6 +31,22 @@ module IIIFHelper
     "#{base_path}/#{attachment_key(image)}/full/#{width},/0/default.jpg"
   end
 
+  def iiif_url_from_params(image, params={})
+    # identifier	null
+    # region	"full"
+    # size	"full"
+    # rotation	"0"
+    # quality	"default"
+    # format	"jpg"
+    config = {
+      identifier: attachment_key(image)
+    }
+
+    IiifUrl.from_params(
+      config.merge(params)
+    )
+  end
+
   private
 
   ##
