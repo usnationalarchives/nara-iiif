@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_191811) do
+ActiveRecord::Schema.define(version: 2019_07_11_160022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,22 @@ ActiveRecord::Schema.define(version: 2019_07_03_191811) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["image_id"], name: "index_posts_on_image_id"
+  end
+
+  create_table "record_objects", force: :cascade do |t|
+    t.string "label", null: false
+    t.string "description"
+    t.string "attribution"
+    t.string "license"
+    t.integer "naId", null: false
+    t.bigint "image_id", null: false
+    t.integer "record_objectable_id", null: false
+    t.string "record_objectable_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_record_objects_on_image_id"
+    t.index ["record_objectable_id"], name: "index_record_objects_on_record_objectable_id"
+    t.index ["record_objectable_type"], name: "index_record_objects_on_record_objectable_type"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

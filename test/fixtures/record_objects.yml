@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  label: MyString
+  description: MyString
+  attribution: MyString
+  license: MyString
+  naId: 1
+  image: 
+
+two:
+  label: MyString
+  description: MyString
+  attribution: MyString
+  license: MyString
+  naId: 1
+  image: 
