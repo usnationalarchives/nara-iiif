@@ -32,6 +32,7 @@ module IIIFHelper
   end
 
   def iiif_url_from_params(image, params={})
+    ## Param Defaults 
     # identifier	null
     # region	"full"
     # size	"full"

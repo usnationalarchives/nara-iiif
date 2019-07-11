@@ -1,0 +1,162 @@
+{
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@id": "http://b432aea0-4bd1-43b6-ad86-663e80d1710a",
+	"@type": "sc:Manifest",
+	"label": "Declaration of Independence ",
+	"metadata": [],
+	"description": [
+		{
+			"@value": "Engrossed Declaration of Independence",
+			"@language": "en"
+		}
+	],
+	"license": "https://creativecommons.org/licenses/by/3.0/",
+	"attribution": "Congress of the Confederation. 3/2/1781-3/4/1789",
+	"sequences": [
+		{
+			"@id": "http://2cbaf9a2-eed2-4f97-a4bf-b2458fe5a5ea",
+			"@type": "sc:Sequence",
+			"label": "Normal Sequence",
+			"canvases": [
+				{
+					"@id": "http://1535a1b9-1a56-4fe4-92c9-5122357b9e58",
+					"@type": "sc:Canvas",
+					"label": "front",
+					"height": 9155,
+					"width": 7530,
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://ec7542a4-bcec-40d4-a9ed-2319b11d0b0a",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://nara-images.herokuapp.com/iiif/2/p51wompqfl6lbio4azj7logsxs1i/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://nara-images.herokuapp.com/iiif/2/p51wompqfl6lbio4azj7logsxs1i",
+									"profile": [
+										"http://iiif.io/api/image/2/level2.json",
+										{
+											"formats": [
+												"jpg",
+												"tif",
+												"gif",
+												"png"
+											],
+											"maxArea": 68937150,
+											"qualities": [
+												"bitonal",
+												"default",
+												"gray",
+												"color"
+											],
+											"supports": [
+												"regionByPx",
+												"sizeByW",
+												"sizeByWhListed",
+												"cors",
+												"regionSquare",
+												"sizeByDistortedWh",
+												"canonicalLinkHeader",
+												"sizeByConfinedWh",
+												"sizeByPct",
+												"jsonldMediaType",
+												"regionByPct",
+												"rotationArbitrary",
+												"sizeByH",
+												"baseUriRedirect",
+												"rotationBy90s",
+												"profileLinkHeader",
+												"sizeByForcedWh",
+												"sizeByWh",
+												"mirroring"
+											]
+										}
+									]
+								},
+								"height": 9155,
+								"width": 7530
+							},
+							"on": "http://1535a1b9-1a56-4fe4-92c9-5122357b9e58"
+						}
+					],
+					"related": ""
+				},
+				{
+					"@id": "http://c10f36ed-55fb-4aa6-bf1c-498b1017f547",
+					"@type": "sc:Canvas",
+					"label": "back",
+					"height": 943,
+					"width": 768,
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://8a04cbe7-c5c8-408e-a109-f15f019c4acb",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://nara-images.herokuapp.com/iiif/2/lcszgq1sndqlk23dp8jy7xap5e4g/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://nara-images.herokuapp.com/iiif/2/lcszgq1sndqlk23dp8jy7xap5e4g",
+									"profile": [
+										"http://iiif.io/api/image/2/level2.json",
+										{
+											"formats": [
+												"jpg",
+												"tif",
+												"gif",
+												"png"
+											],
+											"maxArea": 724224,
+											"qualities": [
+												"bitonal",
+												"default",
+												"gray",
+												"color"
+											],
+											"supports": [
+												"regionByPx",
+												"sizeByW",
+												"sizeByWhListed",
+												"cors",
+												"regionSquare",
+												"sizeByDistortedWh",
+												"canonicalLinkHeader",
+												"sizeByConfinedWh",
+												"sizeByPct",
+												"jsonldMediaType",
+												"regionByPct",
+												"rotationArbitrary",
+												"sizeByH",
+												"baseUriRedirect",
+												"rotationBy90s",
+												"profileLinkHeader",
+												"sizeByForcedWh",
+												"sizeByWh",
+												"mirroring"
+											]
+										}
+									]
+								},
+								"height": 943,
+								"width": 768
+							},
+							"on": "http://c10f36ed-55fb-4aa6-bf1c-498b1017f547"
+						}
+					],
+					"related": ""
+				}
+			]
+		}
+	],
+	"structures": [],
+	"thumbnail": {
+		"@id": "http://1535a1b9-1a56-4fe4-92c9-5122357b9e58"
+	}
+}
