@@ -1,0 +1,39 @@
+<%= form_with(model: item, local: true, multipart: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :naId %>
+    <%= form.text_field :naId %>
+  </div>
+
+  <%# <%= render "shared/image_fields", form: form %>
+  <%= form.fields_for :record_objects, form.object.record_objects || RecordObject.new do |record_object_fields| %>
+    <fieldset>
+      <div class="field">
+        <%= record_object_fields.label :label, "Image Title" %>
+        <%= record_object_fields.text_field :label %>
+      </div>
+    </fieldset>
+  <% end %>
+
+  <div class="actions">
+    <br>
+    <%= form.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @item.body %>
+</p>
+
+<% if @item.image.present? %>
+  <p>
+    <strong>Image:</strong><br>
+    <%= image_tag image_variant_url(@item.image, :small), alt: '' %>
+    <%# <%= image_tag iiif_url_from_params(@item.image, {rotation: 90}), alt: '' %>
+
+    <%# This renders a scaled asset from the IIIF image server %>
+    <%#= image_tag iiif_variant_url(@item.image, :small), alt: '' %>
+  </p>
+  <p>
+    <strong>Image Default:</strong>
+    <%= link_to iiif_url_from_params(@item.image), iiif_url_from_params(@item.image), target: "_blank" %>
+  </p>
+  <p>
+    <strong>Image IIIF Info:</strong>
+    <%= link_to iiif_info_url(@item.image), iiif_info_url(@item.image), target: "_blank" %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
