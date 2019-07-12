@@ -1,24 +1,27 @@
-<%= form.fields_for :image, form.object.image || Image.new do |image_fields| %>
-  <fieldset>
-    <legend>Image</legend>
-    <div class="field">
-      <%= image_fields.label :image, "Image File" %>
-      <%= image_fields.file_field :image unless form.object.image.present? %>
-      <% if form.object.image.present? %>
-        <p>
-          <%= image_tag image_variant_url(form.object.image, :small), alt: '' %>
-        </p>
-      <% end %>
-    </div>
+<div class="nested-fields image_fields">
+  <%= form.fields_for :image, form.object.image || Image.new do |image_fields| %>
+    <fieldset>
+      <legend>Image</legend>
+      <div class="field">
+        <%= image_fields.label :image, "Image File" %>
+        <%= image_fields.file_field :image unless form.object.image.present? %>
+        <% if form.object.image.present? %>
+          <p>
+            <%= image_tag image_variant_url(form.object.image, :small), alt: '' %>
+          </p>
+        <% end %>
+      </div>
 
-    <div class="field">
-      <%= image_fields.label :title, "Image Title" %>
-      <%= image_fields.text_field :title %>
-    </div>
+      <div class="field">
+        <%= image_fields.label :title, "Image Title" %>
+        <%= image_fields.text_field :title %>
+      </div>
 
-    <div class="field">
-      <%= image_fields.label :description, "Image Description" %>
-      <%= image_fields.text_area :description %>
-    </div>
-  </fieldset>
-<% end %>
+      <div class="field">
+        <%= image_fields.label :description, "Image Description" %>
+        <%= image_fields.text_area :description %>
+      </div>
+      <%= link_to_remove_association "remove image", image_fields %>
+    </fieldset>
+  <% end %>
+</div>

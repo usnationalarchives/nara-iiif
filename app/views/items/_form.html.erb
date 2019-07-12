@@ -22,14 +22,15 @@
   </div>
 
   <%# <%= render "shared/image_fields", form: form %>
-  <%= form.fields_for :record_objects, form.object.record_objects || RecordObject.new do |record_object_fields| %>
-    <fieldset>
-      <div class="field">
-        <%= record_object_fields.label :label, "Image Title" %>
-        <%= record_object_fields.text_field :label %>
-      </div>
-    </fieldset>
-  <% end %>
+
+  <div id='tasks'>
+    <%= form.fields_for :record_objects do |record_group| %>
+      <%= render 'record_group_fields', :f => record_group %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add record object', form, :record_objects %>
+    </div>
+  </div>
 
   <div class="actions">
     <br>

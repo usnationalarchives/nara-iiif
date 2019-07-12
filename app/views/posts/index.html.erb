@@ -17,7 +17,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= image_tag image_variant_url(post.image, :small), alt: '', style: "width: 40px" %></td>
+        <td><%= image_tag image_variant_url(post.image, :small), alt: '', style: "width: 40px" if post.image.present? %></td>
         <td><%= post.description %></td>
         <td><%= post.body %></td>
         <td><%= link_to 'Show', post %></td>

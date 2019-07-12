@@ -7,8 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Preview</th>
-      <th>Description</th>
-      <th>Body</th>
+      <th>naId</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +16,8 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.title %></td>
-        <td><%= image_tag image_variant_url(item.image, :small), alt: '', style: "width: 40px" %></td>
-        <td><%= item.description %></td>
-        <td><%= item.body %></td>
+        <td><%#= image_tag image_variant_url(item.image, :small), alt: '', style: "width: 40px" %></td>
+        <td><%= item.naId %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

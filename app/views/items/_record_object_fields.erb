@@ -1,0 +1,37 @@
+  <div class='nested-fields'>
+    <div class="field">
+      <%= f.label :label %>
+      <%= f.text_field :label %>
+    </div>
+    <div class="field">
+      <%= f.label :naId %>
+      <%= f.text_field :naId %>
+    </div>
+
+    <%= f.fields_for :image, f.object.image || Image.new do |image_fields| %>
+      <fieldset>
+        <legend>Image</legend>
+        <div class="field">
+          <%= image_fields.label :image, "Image File" %>
+          <%= image_fields.file_field :image unless f.object.image.present? %>
+          <% if f.object.image.present? %>
+            <p>
+              <%= image_tag image_variant_url(f.object.image, :small), alt: '' %>
+            </p>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= image_fields.label :title, "Image Title" %>
+          <%= image_fields.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= image_fields.label :description, "Image Description" %>
+          <%= image_fields.text_area :description %>
+        </div>
+      </fieldset>
+    <% end %>
+
+    <%= link_to_remove_association "remove record group", f %>
+  </div>

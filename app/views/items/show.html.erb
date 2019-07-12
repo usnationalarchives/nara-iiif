@@ -6,16 +6,19 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @item.description %>
+  <strong>NaId:</strong>
+  <%= @item.naId %>
 </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @item.body %>
-</p>
+<% @item.record_objects.each_with_index do |ro| %>
+  
+  <p>
+    <strong>Label:</strong>
+    <%= @ro.label %>
+  </p>
+<% end %>
 
-<% if @item.image.present? %>
+<% if @item.try(:image).present? %>
   <p>
     <strong>Image:</strong><br>
     <%= image_tag image_variant_url(@item.image, :small), alt: '' %>
