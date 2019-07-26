@@ -7,8 +7,8 @@
     <thead>
       <tr class="mdc-data-table__header-row">
         <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Title</th>
-        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Preview</th>
         <th class="mdc-data-table__header-cell" role="columnheader" scope="col">naId</th>
+        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Preview</th>
         <th class="mdc-data-table__header-cell" role="columnheader" scope="col" colspan="3"></th>
       </tr>
     </thead>
@@ -23,20 +23,19 @@
         </td>
         <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
           <% if item.record_objects.any? %>
-          <% item.record_objects.each do |ro| %>
-          <ul class="mdc-image-list my-image-list">
-            <li class="mdc-image-list__item">
-              <div class="mdc-image-list__image-aspect-container">
-                <%= image_tag iiif_url_from_params(ro.image, {size: "25,25"}), alt: '', class:"mdc-image-list__image" %>
-              </div>
-              <%# <div class="mdc-image-list__supporting">
-                <span class="mdc-image-list__label">Text label</span>
-              </div> %>
-            </li>
-          </ul>
+            <% item.record_objects.each do |ro| %>
+            <ul class="mdc-image-list my-image-list">
+              <li class="mdc-image-list__item">
+                <div class="mdc-image-list__image-aspect-container">
+                  <%= image_tag iiif_url_from_params(ro.image, {size: "25,25"}), alt: '', class:"mdc-image-list__image" %>
+                </div>
+                <%# <div class="mdc-image-list__supporting">
+                  <span class="mdc-image-list__label">Text label</span>
+                </div> %>
+              </li>
+            </ul>
+            <% end %>
           <% end %>
-          <% end %>
-
         </td>
         <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
           <%= link_to 'Show', item, class: "mdc-button mdc-button--unelevated" %>
