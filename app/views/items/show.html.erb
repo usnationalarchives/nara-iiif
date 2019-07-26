@@ -12,6 +12,11 @@
   <%= link_to v1_manifest_url(@item.naId), v1_manifest_url(@item.naId), target: "_blank" %>
 </p>
 
+<p>
+  <strong>Universal Viewer Demo:</strong>
+  <%= link_to "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", target: "_blank" %>
+</p>
+
 <h2 class="mdc-typography--headline5">Objects</h2>
 <div class="mdc-data-table">
   <table class="mdc-data-table__table" aria-label="Dessert calories">
@@ -19,6 +24,7 @@
       <tr class="mdc-data-table__header-row">
         <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Label</th>
         <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Thumbnail</th>
+        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Format</th>
         <th class="mdc-data-table__header-cell" role="columnheader" scope="col">IIIF @id</th>
       </tr>
     </thead>
@@ -30,6 +36,9 @@
         </td>
         <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
           <%= image_tag iiif_url_from_params(ro.image, {size: "75,75"}), alt: '' %>
+        </td>
+        <td>
+          <%= ro.image.image.content_type %>
         </td>
         <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
           <%= link_to iiif_id_url(ro.image), iiif_id_url(ro.image), target: "_blank" %>
