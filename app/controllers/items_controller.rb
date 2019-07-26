@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
         record_objects_attributes: [
           :label, 
           :naId,
-          :image_id,
+          :id,
           :_destroy,
           image_attributes: [
             :title, 

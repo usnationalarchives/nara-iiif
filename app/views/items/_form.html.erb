@@ -25,7 +25,7 @@
 
   <div id='tasks'>
     <%= form.fields_for :record_objects do |record_group| %>
-      <%= render 'record_group_fields', :f => record_group %>
+      <%= render 'record_object_fields', :f => record_group %>
     <% end %>
     <div class='links'>
       <%= link_to_add_association 'add record object', form, :record_objects %>

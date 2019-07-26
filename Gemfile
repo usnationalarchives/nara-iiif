@@ -27,6 +27,12 @@ gem 'image_processing', '~> 1.2'
 gem 'iiif_url'
 # Handle nested forms
 gem "cocoon"
+# API for working with IIIF Presentation manifests
+gem 'iiif-presentation', '~> 0.2.0'
+# Versioning Rails based RESTful APIs
+gem 'versionist'
+#
+gem 'rack-cors'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

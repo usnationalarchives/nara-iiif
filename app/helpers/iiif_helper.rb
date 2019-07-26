@@ -10,6 +10,10 @@ module IIIFHelper
   #
   # <%= iiif_info_url(@post.image) %>
 
+  def iiif_id_url(image)
+    "#{base_path}/#{attachment_key(image)}"
+  end
+
   def iiif_info_url(image)
     "#{base_path}/#{attachment_key(image)}/info.json"
   end
@@ -48,18 +52,18 @@ module IIIFHelper
     )
   end
 
+  ##
+  # Returns the base IIIF API path
+  def base_path
+    "#{ENV.fetch("IMAGE_API_URL")}/iiif/2"
+  end
+
   private
 
   ##
   # Returns an image attachment key. The key is the filename on S3
   def attachment_key(image)
     image.image.attachment.blob.key
-  end
-
-  ##
-  # Returns the base IIIF API path
-  def base_path
-    "#{ENV.fetch("IMAGE_API_URL")}/iiif/2"
   end
 
 end

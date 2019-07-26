@@ -1,41 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+<h1 class="mdc-typography--headline3"><%= @item.title %></h1>
 
 <p>
   <strong>NaId:</strong>
   <%= @item.naId %>
 </p>
 
-<% @item.record_objects.each_with_index do |ro| %>
-  
-  <p>
-    <strong>Label:</strong>
-    <%= @ro.label %>
-  </p>
-<% end %>
+<p>
+  <strong>Manifest:</strong>
+  <%= link_to v1_manifest_url(@item.naId), v1_manifest_url(@item.naId), target: "_blank" %>
+</p>
 
-<% if @item.try(:image).present? %>
-  <p>
-    <strong>Image:</strong><br>
-    <%= image_tag image_variant_url(@item.image, :small), alt: '' %>
-    <%# <%= image_tag iiif_url_from_params(@item.image, {rotation: 90}), alt: '' %>
+<h2 class="mdc-typography--headline5">Objects</h2>
+<div class="mdc-data-table">
+  <table class="mdc-data-table__table" aria-label="Dessert calories">
+    <thead>
+      <tr class="mdc-data-table__header-row">
+        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Label</th>
+        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Thumbnail</th>
+        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">IIIF @id</th>
+      </tr>
+    </thead>
+    <tbody class="mdc-data-table__content">
+      <% @item.record_objects.each_with_index do |ro| %>
+      <tr class="mdc-data-table__row">
+        <td class="mdc-data-table__cell">
+          <%= ro.label %>
+        </td>
+        <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+          <%= image_tag iiif_url_from_params(ro.image, {size: "75,75"}), alt: '' %>
+        </td>
+        <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+          <%= link_to iiif_id_url(ro.image), iiif_id_url(ro.image), target: "_blank" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-    <%# This renders a scaled asset from the IIIF image server %>
-    <%#= image_tag iiif_variant_url(@item.image, :small), alt: '' %>
-  </p>
-  <p>
-    <strong>Image Default:</strong>
-    <%= link_to iiif_url_from_params(@item.image), iiif_url_from_params(@item.image), target: "_blank" %>
-  </p>
-  <p>
-    <strong>Image IIIF Info:</strong>
-    <%= link_to iiif_info_url(@item.image), iiif_info_url(@item.image), target: "_blank" %>
-  </p>
-<% end %>
+<%#= render "items/record_object_grid" %>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<div class="tools-footer">
+  <%= link_to 'Edit', edit_item_path(@item), class: "mdc-button mdc-button--unelevated" %>
+  <%= link_to 'Back', items_path, class: "mdc-button mdc-button--outlined" %>
+</div>

@@ -16,7 +16,7 @@
           <%= image_fields.file_field :image unless f.object.image.present? %>
           <% if f.object.image.present? %>
             <p>
-              <%= image_tag image_variant_url(f.object.image, :small), alt: '' %>
+              <%#= image_tag image_variant_url(f.object.image, :small), alt: '' %>
             </p>
           <% end %>
         </div>
