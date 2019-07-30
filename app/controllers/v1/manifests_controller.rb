@@ -42,20 +42,20 @@ class V1::ManifestsController < ApplicationController
         # '@id' => "#{ENV.fetch("IMAGE_API_URL")}/item/2/#{record_object.id}",
         'on' => "#{ENV.fetch("IMAGE_API_URL")}/item/2/#{record_object.id}",
         'height' => canvas.height,
+        'width' => record_object.image.image.metadata[:width],
         # 'service_id' => "#{ENV.fetch("IMAGE_API_URL")}/iiif/2",
         # 'resource_id' => helpers.iiif_url_from_params(record_object.image),
         # 'resource_id' => "#{ENV.fetch("IMAGE_API_URL")}/iiif/2",
         'resource' => IIIF::Presentation::ImageResource.new(
           '@id' =>  helpers.iiif_url_from_params(record_object.image),
           'height' => canvas.height,
+          'width' => canvas.width,
           'service' => {
             "profile" => "http://iiif.io/api/image/2/level1.json",
             "@context" => "http://iiif.io/api/image/2/context.json",
             '@id' => helpers.iiif_id_url(record_object.image)
-          },
-          'width' => record_object.image.image.metadata[:width]
+          }
         ),
-        'width' => record_object.image.image.metadata[:width]
       )
 
       # canvas.thumbnail =  {
