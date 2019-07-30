@@ -7,7 +7,7 @@ class V1::ManifestsController < ApplicationController
 
   def show
     seed = {
-      '@id' => 'http://example.com/manifest',
+      '@id' => helpers.v1_manifest_url(@item.naId),
       'label' => "NARA IIIF Prototype Presentation Manifest: #{@item.title}"
     }
     # Any options you add are added to the object

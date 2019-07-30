@@ -13,6 +13,11 @@
 </p>
 
 <p>
+  <strong>Viewer:</strong>
+  <%= link_to item_viewer_url(@item), item_viewer_url(@item) %>
+</p>
+
+<p>
   <strong>Universal Viewer Demo:</strong>
   <%= link_to "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", target: "_blank" %>
 </p>
