@@ -14,7 +14,8 @@ class Viewer {
       },
       windows: [
         {
-          manifestId: manifestUri
+          manifestId: manifestUri,
+          thumbnailNavigationPosition: 'far-right'
         }
       ],
       manifests: {
@@ -25,7 +26,8 @@ class Viewer {
         sideBarOpenByDefault: false
       },
       workspace: {
-        showZoomControls: true
+        showZoomControls: true,
+        type: 'mosaic'
       }
     });
   }
