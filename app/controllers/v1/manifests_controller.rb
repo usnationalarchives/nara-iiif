@@ -50,7 +50,7 @@ class V1::ManifestsController < ApplicationController
             "@context" => "http://iiif.io/api/image/2/context.json",
             '@id' => helpers.iiif_id_url(record_object.image)
           }
-        ),
+        )
       )
 
       # canvas.thumbnail =  {

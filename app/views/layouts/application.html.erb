@@ -13,7 +13,9 @@
   </head>
 
   <body class="mdc-typography">
-    <%= yield %>
+    <div id="main">
+      <%= yield %>
+    </div>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
