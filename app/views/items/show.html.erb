@@ -37,7 +37,7 @@
     <tbody class="mdc-data-table__content">
       <% @item.record_objects.each_with_index do |ro| %>
       <tr class="mdc-data-table__row">
-        <td class="mdc-data-table__cell">
+        <td class="mdc-data-table__cell table__cell--title">
           <%= ro.label %>
         </td>
         <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
@@ -46,7 +46,7 @@
         <td>
           <%= ro.image.image.content_type %>
         </td>
-        <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+        <td class="mdc-data-table__cell mdc-data-table__cell--numeric table__cell--id">
           <%= link_to iiif_id_url(ro.image), iiif_id_url(ro.image), target: "_blank" %>
         </td>
       </tr>
