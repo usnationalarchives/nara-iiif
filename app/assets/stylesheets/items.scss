@@ -17,3 +17,8 @@ fieldset {
 textarea {
   width: 100%;
 }
+
+.table__cell--title {
+  max-width: 150px;
+  overflow: scroll;
+}
