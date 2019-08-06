@@ -2,12 +2,14 @@ import Mirador from 'mirador';
 
 class Viewer {
   constructor(config) {
-    const self = this;
-    self.el = config.el;
+    this.el = config.el;
+    this.setupMirador();
+  }
 
+  setupMirador() {
     const manifestUri = this.el.getAttribute('manifest-url');
 
-    const viewer = Mirador.viewer({
+    const config = {
       id: 'viewer',
       workspaceControlPanel: {
         enabled: false
@@ -15,7 +17,8 @@ class Viewer {
       windows: [
         {
           manifestId: manifestUri,
-          thumbnailNavigationPosition: 'far-right'
+          thumbnailNavigationPosition: 'far-right',
+          view: 'single'
         }
       ],
       manifests: {
@@ -23,13 +26,17 @@ class Viewer {
       },
       window: {
         allowClose: false,
-        sideBarOpenByDefault: false
+        allowMaximize: false,
+        sideBarOpenByDefault: false,
+        defaultView: 'single'
       },
       workspace: {
-        showZoomControls: true,
-        type: 'mosaic'
+        type: 'mosaic',
+        showZoomControls: true
       }
-    });
+    };
+
+    Mirador.viewer(config);
   }
 }
 
