@@ -1,28 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 ### NARA IIIF Presentation Application
 
 This project uses Rails to support the components neccessary for displaying a IIIF compliant viewer. It includes configuration for gems we like, such as [Puma][], [Dalli][], [Amazon S3][], [Seed-fu][], and [Paperclip][], and it's ready to deploy to Heroku.
