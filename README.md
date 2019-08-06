@@ -1,4 +1,4 @@
-### NARA IIIF Presentation Application
+# NARA IIIF Presentation Application
 
 [Prototype](http://nara-iiif.herokuapp.com/items)
 [Viewer Example](http://nara-iiif.herokuapp.com/items/1/viewer)
