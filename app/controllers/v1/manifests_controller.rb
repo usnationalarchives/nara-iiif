@@ -31,21 +31,15 @@ class V1::ManifestsController < ApplicationController
 
       iiif_url = URI("#{helpers.iiif_id_url(record_object.image)}/info.json")
       iiif_json = Net::HTTP.get(iiif_url)
-      canvas.width = JSON.parse(iiif_json)['width']
-      canvas.height = JSON.parse(iiif_json)['height']
+      canvas.width = JSON.parse(iiif_json)['width'] rescue 100
+      canvas.height = JSON.parse(iiif_json)['height'] rescue 100
       canvas.label = record_object.label
-
-      # oc = IIIF::Presentation::Resource.new('@id' => 'http://example.com/content')
-      # canvas.other_content << oc
 
       canvas.images << IIIF::Presentation::Annotation.new(
         # '@id' => "#{ENV.fetch("IMAGE_API_URL")}/item/2/#{record_object.id}",
         'on' => "#{ENV.fetch("IMAGE_API_URL")}/item/2/#{record_object.id}",
         'height' => canvas.height,
         'width' => record_object.image.image.metadata[:width],
-        # 'service_id' => "#{ENV.fetch("IMAGE_API_URL")}/iiif/2",
-        # 'resource_id' => helpers.iiif_url_from_params(record_object.image),
-        # 'resource_id' => "#{ENV.fetch("IMAGE_API_URL")}/iiif/2",
         'resource' => IIIF::Presentation::ImageResource.new(
           '@id' =>  helpers.iiif_url_from_params(record_object.image),
           'height' => canvas.height,
