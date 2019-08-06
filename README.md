@@ -1,5 +1,8 @@
 ### NARA IIIF Presentation Application
 
+[Prototype](http://nara-iiif.herokuapp.com/items)
+[Viewer Example](http://nara-iiif.herokuapp.com/items/1/viewer)
+
 This project uses Rails to support the components neccessary for displaying a IIIF compliant viewer. It includes configuration for gems we like, such as [Puma][], [Dalli][], [Amazon S3][], [Seed-fu][], and [Paperclip][], and it's ready to deploy to Heroku.
 
 [Puma]: http://puma.io
