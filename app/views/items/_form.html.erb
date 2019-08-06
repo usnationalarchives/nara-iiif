@@ -11,14 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field mdc-text-field">
+    <%= form.label :title, class: "mdc-floating-label" %>
+    <%= form.text_field :title, class: "mdc-text-field__input" %>
   </div>
+  <br>
 
-  <div class="field">
-    <%= form.label :naId %>
-    <%= form.text_field :naId %>
+  <div class="field mdc-text-field">
+    <%= form.label :naId, class: "mdc-floating-label" %>
+    <%= form.text_field :naId, class: "mdc-text-field__input" %>
   </div>
 
   <%# <%= render "shared/image_fields", form: form %>
@@ -28,13 +29,13 @@
       <%= render 'record_object_fields', :f => record_group %>
     <% end %>
     <div class='links'>
-      <%= link_to_add_association 'add record object', form, :record_objects %>
+      <%= link_to_add_association '+ add record object', form, :record_objects, class: "mdc-button mdc-button--outlined" %>
     </div>
   </div>
 
   <div class="actions">
     <br>
-    <%= form.submit %>
+    <%= form.submit 'Create Item', class:"mdc-button mdc-button--unelevated" %>
   </div>
 
 <% end %>

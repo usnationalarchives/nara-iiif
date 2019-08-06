@@ -1,11 +1,13 @@
   <div class='nested-fields'>
-    <div class="field">
-      <%= f.label :label %>
-      <%= f.text_field :label %>
+    <h2>Record Object</h2>
+    <div class="field mdc-text-field">
+      <%= f.label :label, class: "mdc-floating-label" %>
+      <%= f.text_field :label, class: "mdc-text-field__input" %>
     </div>
-    <div class="field">
-      <%= f.label :naId %>
-      <%= f.text_field :naId %>
+    <br>
+    <div class="field mdc-text-field">
+      <%= f.label :naId, class: "mdc-floating-label" %>
+      <%= f.text_field :naId, class: "mdc-text-field__input" %>
     </div>
 
     <%= f.fields_for :image, f.object.image || Image.new do |image_fields| %>
@@ -14,24 +16,33 @@
         <div class="field">
           <%= image_fields.label :image, "Image File" %>
           <%= image_fields.file_field :image unless f.object.image.present? %>
-          <% if f.object.image.present? %>
+          <% if f.object.try(:image).try(:present?) %>
             <p>
-              <%#= image_tag image_variant_url(f.object.image, :small), alt: '' %>
+              <%= image_tag image_variant_url(f.object.image, :small), alt: '' %>
             </p>
           <% end %>
         </div>
 
-        <div class="field">
-          <%= image_fields.label :title, "Image Title" %>
-          <%= image_fields.text_field :title %>
+        <div class="field mdc-text-field">
+          <%= image_fields.label :title, "Image Title", class: "mdc-floating-label" %>
+          <%= image_fields.text_field :title, class: "mdc-text-field__input" %>
         </div>
+        <br>
 
-        <div class="field">
-          <%= image_fields.label :description, "Image Description" %>
-          <%= image_fields.text_area :description %>
+        <div class="field mdc-text-field mdc-text-field--textarea">
+          <%= image_fields.text_area :description, class: "mdc-text-field__input", rows: "3", columns: "100" %>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+
+            <div class="mdc-notched-outline__notch">
+              <%= image_fields.label :description, "Image Description", class: "mdc-floating-label" %>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
         </div>
+        
       </fieldset>
     <% end %>
 
-    <%= link_to_remove_association "remove record object", f %>
+    <%= link_to_remove_association "remove record object", f, class: "mdc-button mdc-button--outlined" %>
   </div>

@@ -1,9 +1,15 @@
 .nested-fields {
-  border: solid 1px #000;
+  border: solid 4px #444;
+  border-radius: 3px;
   padding: 20px;
   margin-bottom: 30px;
 }
 
 .tools-footer {
   margin-top: 20px;
+}
+
+fieldset {
+  outline: 0;
+  border: 0;
 }

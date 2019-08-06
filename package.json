@@ -2,11 +2,13 @@
   "name": "nara_iiif",
   "private": true,
   "dependencies": {
+    "@material/textfield": "^3.1.0",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.7",
     "cocoon-js": "^0.0.5",
+    "install": "^0.13.0",
     "mirador": "3.0.0-alpha.16"
   },
   "version": "0.1.0",
