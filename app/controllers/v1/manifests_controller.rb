@@ -7,19 +7,20 @@ class V1::ManifestsController < ApplicationController
 
   def show
     seed = {
-      '@id' => helpers.v1_manifest_url(@item.naId),
-      'label' => "NARA IIIF Prototype Presentation Manifest: #{@item.title}"
+      "@id" => helpers.v1_manifest_url(@item.naId),
+      # `attribution` should map to Item.contributors
+      "attribution" => "U.S. House of Representatives. 3/4/1789-",
+      "label" => "NARA IIIF Prototype Presentation Manifest: #{@item.title}",
+      # `license` should map Item.useRestrictions to the appropiate URI here:
+      # https://rightsstatements.org/page/1.0/?language=en#collection-nc
+      "license" => "http://rightsstatements.org/vocab/NoC-US/1.0/",
+      "viewingDirection" => "left-to-right",
+      "viewingHint" => "paged"
     }
     # Any options you add are added to the object
     manifest = IIIF::Presentation::Manifest.new(seed)
 
-    sequence = IIIF::Presentation::Sequence.new(
-      'viewingDirection' => "left-to-right"
-    )
-
-    # range = IIIF::Presentation::Range.new(
-    #   '@id' =>
-    # )
+    sequence = IIIF::Presentation::Sequence.new()
 
     @item.record_objects.each do |record_object|
       canvas = IIIF::Presentation::Canvas.new()
