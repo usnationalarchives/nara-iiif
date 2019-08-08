@@ -13,15 +13,13 @@
 </p>
 
 <p>
-  <strong>Viewer:</strong>
+  <strong>Mirador Viewer (Local):</strong>
   <%= link_to item_viewer_url(@item), item_viewer_url(@item), target: "_blank" %>
 </p>
-
-
-<%# <p> %>
-  <%# <strong>Universal Viewer Demo:</strong> %>
-  <%#= link_to "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", target: "_blank" %>
-<%# </p> %>
+<p>
+  <strong>Universal Viewer (External):</strong>
+  <%= link_to "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", "http://universalviewer.io/uv.html?manifest=#{v1_manifest_url(@item.naId)}", target: "_blank" %>
+</p>
 
 <h2 class="mdc-typography--headline5">Objects</h2>
 <div class="mdc-data-table">
