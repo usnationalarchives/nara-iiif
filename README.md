@@ -37,7 +37,7 @@ If you do not have a Node development environment, please review the guides belo
 Clone this project and change to it. Then attach to the Heroku application.
 
 ```shell
-git clone -o github git@github.com:Threespot/nara-iiif.git
+git clone -o github git@github.com:usnationalarchives/nara-iiif.git
 cd nara-iiif
 heroku git --ssh-git --app nara-iiif
 ```
